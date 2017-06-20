@@ -1,0 +1,7 @@
+option java_outer_classname = "ClientActionProto";
+package message.core;
+
+//客户端请求命令列表
+enum ClientAction {
+	ACTION_HEARTBEAT = 1; //心跳;PB.player.HeartBeatReq;PB.player.HeartBeatRsp
+}
