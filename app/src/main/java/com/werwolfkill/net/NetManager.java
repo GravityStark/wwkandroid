@@ -1,5 +1,10 @@
 package com.werwolfkill.net;
 
+import android.os.Bundle;
+import android.os.Message;
+
+import com.werwolfkill.MainActivity;
+
 import message.core.ClientActionProto;
 import message.core.PBMessageProto;
 
@@ -10,7 +15,7 @@ import message.core.PBMessageProto;
 public class NetManager {
 
     private static SocketClient socketClient = null;
-
+    private MainActivity.MyHandler mHandler;//游戏界面
     private NetManager() {
     }
 
@@ -66,5 +71,46 @@ public class NetManager {
                 }
             }
         }).start();
+    }
+
+    public void setmHandler(MainActivity.MyHandler mHandler) {
+        this.mHandler = mHandler;
+    }
+
+    /**
+     * 发送系统数据到主界面
+     */
+    public void sendSystemMsgToMainActivity(String content){
+        StringBuilder senderBuilder = new StringBuilder();
+        senderBuilder.append("系统消息-->");
+
+        StringBuilder contentBuilder = new StringBuilder(content);
+
+
+        Message message = Message.obtain();
+        message.what = 1;
+        Bundle bundle = new Bundle();
+        bundle.putString("sender",senderBuilder.toString());
+        bundle.putString("content",contentBuilder.toString());
+        message.setData(bundle);
+        mHandler.sendMessage(message);
+
+    }
+    /**
+     * 发送玩家数据到主界面
+     */
+    public void sendPlayerMsgToMainActivity(String sender,String content){
+        StringBuilder senderBuilder = new StringBuilder(sender);
+        senderBuilder.append(" 说:");
+
+        StringBuilder contentBuilder = new StringBuilder(content);
+
+
+        Message message = Message.obtain();
+        Bundle bundle = new Bundle();
+        bundle.putString("sender",senderBuilder.toString());
+        bundle.putString("content",contentBuilder.toString());
+        message.setData(bundle);
+        mHandler.sendMessage(message);
     }
 }

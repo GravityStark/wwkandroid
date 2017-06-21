@@ -39,6 +39,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile files('libs/netty-all-4.1.7.Final.jar')
     compile 'com.google.protobuf:protobuf-lite:3.0.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.google.android.gms:play-services-ads:10.0.1'
 }
 
 protobuf{
