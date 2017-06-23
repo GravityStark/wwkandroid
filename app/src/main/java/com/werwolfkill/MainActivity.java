@@ -41,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
         NetManager.getinstance().setmHandler(mHandler);
 
+        try {
+            NetManager.getinstance().loginRsp(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**

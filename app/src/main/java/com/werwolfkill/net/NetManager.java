@@ -3,8 +3,10 @@ package com.werwolfkill.net;
 import android.os.Bundle;
 import android.os.Message;
 
+import com.google.protobuf.ByteString;
 import com.werwolfkill.MainActivity;
 
+import message.PlayerProto;
 import message.core.ClientActionProto;
 import message.core.PBMessageProto;
 
@@ -48,10 +50,11 @@ public class NetManager {
         socketClient = new SocketClient();
         socketClient.connet();
 
+        loginReq(null);
         heartBeat();
     }
 
-    public static void sendMessage(PBMessageProto.PBMessage.Builder msg) {
+    public  void sendMessage(PBMessageProto.PBMessage.Builder msg) {
         socketClient.send(msg);
     }
 
@@ -112,5 +115,29 @@ public class NetManager {
         bundle.putString("content",contentBuilder.toString());
         message.setData(bundle);
         mHandler.sendMessage(message);
+    }
+
+    public void loginReq(String id){
+        PlayerProto.LoginReq.Builder builder = PlayerProto.LoginReq.newBuilder();
+        if(id != null){
+            builder.setId(id);
+        }
+        sendMsgToServer(builder.build().toByteString(), ClientActionProto.ClientAction.ACTION_LOGIN_VALUE);
+    }
+    public void loginRsp(ByteString msg) throws  Exception{
+        PlayerProto.LoginRsp rsp = PlayerProto.LoginRsp.parseFrom(msg);
+        if(rsp.getSuccess()){
+            PlayerProto.PlayerMsg player = rsp.getPlayer();
+            sendSystemMsgToMainActivity(player.getName()+"登录成功");
+        }
+
+    }
+
+
+    public void sendMsgToServer(ByteString msg,int actionCode){
+        PBMessageProto.PBMessage.Builder builder = PBMessageProto.PBMessage.newBuilder();
+        builder.setCode(actionCode);
+        builder.setData(msg);
+        sendMessage(builder);
     }
 }
