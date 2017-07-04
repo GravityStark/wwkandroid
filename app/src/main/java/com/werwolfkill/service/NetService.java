@@ -18,7 +18,7 @@ public class NetService extends Service {
     public void onCreate() {
         super.onCreate();
         //启动网络线程
-        NetManager.getinstance().init();
+        NetManager.getInstance().init();
 
     }
 

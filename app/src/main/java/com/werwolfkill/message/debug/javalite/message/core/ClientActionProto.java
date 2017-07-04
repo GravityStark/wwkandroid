@@ -33,6 +33,14 @@ public final class ClientActionProto {
      * <code>ACTION_LOGIN = 2;</code>
      */
     ACTION_LOGIN(2),
+    /**
+     * <pre>
+     *登录;
+     * </pre>
+     *
+     * <code>ACTION_CREAT_ROOM = 3;</code>
+     */
+    ACTION_CREAT_ROOM(3),
     ;
 
     /**
@@ -51,6 +59,14 @@ public final class ClientActionProto {
      * <code>ACTION_LOGIN = 2;</code>
      */
     public static final int ACTION_LOGIN_VALUE = 2;
+    /**
+     * <pre>
+     *登录;
+     * </pre>
+     *
+     * <code>ACTION_CREAT_ROOM = 3;</code>
+     */
+    public static final int ACTION_CREAT_ROOM_VALUE = 3;
 
 
     public final int getNumber() {
@@ -69,6 +85,7 @@ public final class ClientActionProto {
       switch (value) {
         case 1: return ACTION_HEARTBEAT;
         case 2: return ACTION_LOGIN;
+        case 3: return ACTION_CREAT_ROOM;
         default: return null;
       }
     }

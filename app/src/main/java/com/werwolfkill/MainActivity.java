@@ -1,6 +1,5 @@
 package com.werwolfkill;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,8 +8,6 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.werwolfkill.net.NetManager;
-import com.werwolfkill.service.NetService;
-import com.werwolfkill.service.NetServiceConnection;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -22,30 +19,27 @@ import static com.werwolfkill.R.id.sender;
 
 public class MainActivity extends AppCompatActivity {
 
-    private NetServiceConnection netServiceConnection = new NetServiceConnection();
+
     private ListView listView;
     private List<Map<String, String>> dataList = new ArrayList<>();
     private final MyHandler mHandler = new MyHandler(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //启动net服务
-        Intent intent = new Intent(this, NetService.class);
-        startService(intent);
-        bindService(intent, netServiceConnection, BIND_AUTO_CREATE);
+
         //去掉actionBar
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
         initListView();
 
-        NetManager.getinstance().setmHandler(mHandler);
+        NetManager.getInstance().setmHandler(mHandler);
+        NetManager.getInstance().creatRoomReq();
+    }
 
-        try {
-            NetManager.getinstance().loginRsp(null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    @Override
+    public void onBackPressed() {
+
     }
 
     /**

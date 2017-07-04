@@ -619,6 +619,4426 @@ public final class RoomMsgProto {
     // @@protoc_insertion_point(enum_scope:message.GameRole)
   }
 
+  public interface RoomMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:message.RoomMsg)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <pre>
+     *房主id
+     * </pre>
+     *
+     * <code>optional string id = 1;</code>
+     */
+    boolean hasId();
+    /**
+     * <pre>
+     *房主id
+     * </pre>
+     *
+     * <code>optional string id = 1;</code>
+     */
+    java.lang.String getId();
+    /**
+     * <pre>
+     *房主id
+     * </pre>
+     *
+     * <code>optional string id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <pre>
+     *房间状态     1：空闲 2：游戏中
+     * </pre>
+     *
+     * <code>optional int32 status = 2;</code>
+     */
+    boolean hasStatus();
+    /**
+     * <pre>
+     *房间状态     1：空闲 2：游戏中
+     * </pre>
+     *
+     * <code>optional int32 status = 2;</code>
+     */
+    int getStatus();
+
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    java.util.List<message.RoomMsgProto.JoinerListMsg> 
+        getJoinerListMsgList();
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    message.RoomMsgProto.JoinerListMsg getJoinerListMsg(int index);
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    int getJoinerListMsgCount();
+
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    java.util.List<message.RoomMsgProto.GameMsgPro> 
+        getMsgsList();
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    message.RoomMsgProto.GameMsgPro getMsgs(int index);
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    int getMsgsCount();
+  }
+  /**
+   * Protobuf type {@code message.RoomMsg}
+   */
+  public  static final class RoomMsg extends
+      com.google.protobuf.GeneratedMessageLite<
+          RoomMsg, RoomMsg.Builder> implements
+      // @@protoc_insertion_point(message_implements:message.RoomMsg)
+      RoomMsgOrBuilder {
+    private RoomMsg() {
+      id_ = "";
+      joinerListMsg_ = emptyProtobufList();
+      msgs_ = emptyProtobufList();
+    }
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private java.lang.String id_;
+    /**
+     * <pre>
+     *房主id
+     * </pre>
+     *
+     * <code>optional string id = 1;</code>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *房主id
+     * </pre>
+     *
+     * <code>optional string id = 1;</code>
+     */
+    public java.lang.String getId() {
+      return id_;
+    }
+    /**
+     * <pre>
+     *房主id
+     * </pre>
+     *
+     * <code>optional string id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(id_);
+    }
+    /**
+     * <pre>
+     *房主id
+     * </pre>
+     *
+     * <code>optional string id = 1;</code>
+     */
+    private void setId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+      id_ = value;
+    }
+    /**
+     * <pre>
+     *房主id
+     * </pre>
+     *
+     * <code>optional string id = 1;</code>
+     */
+    private void clearId() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      id_ = getDefaultInstance().getId();
+    }
+    /**
+     * <pre>
+     *房主id
+     * </pre>
+     *
+     * <code>optional string id = 1;</code>
+     */
+    private void setIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+      id_ = value.toStringUtf8();
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 2;
+    private int status_;
+    /**
+     * <pre>
+     *房间状态     1：空闲 2：游戏中
+     * </pre>
+     *
+     * <code>optional int32 status = 2;</code>
+     */
+    public boolean hasStatus() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *房间状态     1：空闲 2：游戏中
+     * </pre>
+     *
+     * <code>optional int32 status = 2;</code>
+     */
+    public int getStatus() {
+      return status_;
+    }
+    /**
+     * <pre>
+     *房间状态     1：空闲 2：游戏中
+     * </pre>
+     *
+     * <code>optional int32 status = 2;</code>
+     */
+    private void setStatus(int value) {
+      bitField0_ |= 0x00000002;
+      status_ = value;
+    }
+    /**
+     * <pre>
+     *房间状态     1：空闲 2：游戏中
+     * </pre>
+     *
+     * <code>optional int32 status = 2;</code>
+     */
+    private void clearStatus() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      status_ = 0;
+    }
+
+    public static final int JOINERLISTMSG_FIELD_NUMBER = 3;
+    private com.google.protobuf.Internal.ProtobufList<message.RoomMsgProto.JoinerListMsg> joinerListMsg_;
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    public java.util.List<message.RoomMsgProto.JoinerListMsg> getJoinerListMsgList() {
+      return joinerListMsg_;
+    }
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    public java.util.List<? extends message.RoomMsgProto.JoinerListMsgOrBuilder> 
+        getJoinerListMsgOrBuilderList() {
+      return joinerListMsg_;
+    }
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    public int getJoinerListMsgCount() {
+      return joinerListMsg_.size();
+    }
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    public message.RoomMsgProto.JoinerListMsg getJoinerListMsg(int index) {
+      return joinerListMsg_.get(index);
+    }
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    public message.RoomMsgProto.JoinerListMsgOrBuilder getJoinerListMsgOrBuilder(
+        int index) {
+      return joinerListMsg_.get(index);
+    }
+    private void ensureJoinerListMsgIsMutable() {
+      if (!joinerListMsg_.isModifiable()) {
+        joinerListMsg_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(joinerListMsg_);
+       }
+    }
+
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    private void setJoinerListMsg(
+        int index, message.RoomMsgProto.JoinerListMsg value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureJoinerListMsgIsMutable();
+      joinerListMsg_.set(index, value);
+    }
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    private void setJoinerListMsg(
+        int index, message.RoomMsgProto.JoinerListMsg.Builder builderForValue) {
+      ensureJoinerListMsgIsMutable();
+      joinerListMsg_.set(index, builderForValue.build());
+    }
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    private void addJoinerListMsg(message.RoomMsgProto.JoinerListMsg value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureJoinerListMsgIsMutable();
+      joinerListMsg_.add(value);
+    }
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    private void addJoinerListMsg(
+        int index, message.RoomMsgProto.JoinerListMsg value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureJoinerListMsgIsMutable();
+      joinerListMsg_.add(index, value);
+    }
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    private void addJoinerListMsg(
+        message.RoomMsgProto.JoinerListMsg.Builder builderForValue) {
+      ensureJoinerListMsgIsMutable();
+      joinerListMsg_.add(builderForValue.build());
+    }
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    private void addJoinerListMsg(
+        int index, message.RoomMsgProto.JoinerListMsg.Builder builderForValue) {
+      ensureJoinerListMsgIsMutable();
+      joinerListMsg_.add(index, builderForValue.build());
+    }
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    private void addAllJoinerListMsg(
+        java.lang.Iterable<? extends message.RoomMsgProto.JoinerListMsg> values) {
+      ensureJoinerListMsgIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, joinerListMsg_);
+    }
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    private void clearJoinerListMsg() {
+      joinerListMsg_ = emptyProtobufList();
+    }
+    /**
+     * <pre>
+     *房间成员 &lt;位置，玩家信息&gt;
+     * </pre>
+     *
+     * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+     */
+    private void removeJoinerListMsg(int index) {
+      ensureJoinerListMsgIsMutable();
+      joinerListMsg_.remove(index);
+    }
+
+    public static final int MSGS_FIELD_NUMBER = 4;
+    private com.google.protobuf.Internal.ProtobufList<message.RoomMsgProto.GameMsgPro> msgs_;
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    public java.util.List<message.RoomMsgProto.GameMsgPro> getMsgsList() {
+      return msgs_;
+    }
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    public java.util.List<? extends message.RoomMsgProto.GameMsgProOrBuilder> 
+        getMsgsOrBuilderList() {
+      return msgs_;
+    }
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    public int getMsgsCount() {
+      return msgs_.size();
+    }
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    public message.RoomMsgProto.GameMsgPro getMsgs(int index) {
+      return msgs_.get(index);
+    }
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    public message.RoomMsgProto.GameMsgProOrBuilder getMsgsOrBuilder(
+        int index) {
+      return msgs_.get(index);
+    }
+    private void ensureMsgsIsMutable() {
+      if (!msgs_.isModifiable()) {
+        msgs_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(msgs_);
+       }
+    }
+
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    private void setMsgs(
+        int index, message.RoomMsgProto.GameMsgPro value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureMsgsIsMutable();
+      msgs_.set(index, value);
+    }
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    private void setMsgs(
+        int index, message.RoomMsgProto.GameMsgPro.Builder builderForValue) {
+      ensureMsgsIsMutable();
+      msgs_.set(index, builderForValue.build());
+    }
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    private void addMsgs(message.RoomMsgProto.GameMsgPro value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureMsgsIsMutable();
+      msgs_.add(value);
+    }
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    private void addMsgs(
+        int index, message.RoomMsgProto.GameMsgPro value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureMsgsIsMutable();
+      msgs_.add(index, value);
+    }
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    private void addMsgs(
+        message.RoomMsgProto.GameMsgPro.Builder builderForValue) {
+      ensureMsgsIsMutable();
+      msgs_.add(builderForValue.build());
+    }
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    private void addMsgs(
+        int index, message.RoomMsgProto.GameMsgPro.Builder builderForValue) {
+      ensureMsgsIsMutable();
+      msgs_.add(index, builderForValue.build());
+    }
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    private void addAllMsgs(
+        java.lang.Iterable<? extends message.RoomMsgProto.GameMsgPro> values) {
+      ensureMsgsIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, msgs_);
+    }
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    private void clearMsgs() {
+      msgs_ = emptyProtobufList();
+    }
+    /**
+     * <pre>
+     *房间信息记录
+     * </pre>
+     *
+     * <code>repeated .message.GameMsgPro msgs = 4;</code>
+     */
+    private void removeMsgs(int index) {
+      ensureMsgsIsMutable();
+      msgs_.remove(index);
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeString(1, getId());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, status_);
+      }
+      for (int i = 0; i < joinerListMsg_.size(); i++) {
+        output.writeMessage(3, joinerListMsg_.get(i));
+      }
+      for (int i = 0; i < msgs_.size(); i++) {
+        output.writeMessage(4, msgs_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(1, getId());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, status_);
+      }
+      for (int i = 0; i < joinerListMsg_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, joinerListMsg_.get(i));
+      }
+      for (int i = 0; i < msgs_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, msgs_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    public static message.RoomMsgProto.RoomMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static message.RoomMsgProto.RoomMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static message.RoomMsgProto.RoomMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static message.RoomMsgProto.RoomMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static message.RoomMsgProto.RoomMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.RoomMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static message.RoomMsgProto.RoomMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.RoomMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static message.RoomMsgProto.RoomMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.RoomMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(message.RoomMsgProto.RoomMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    /**
+     * Protobuf type {@code message.RoomMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          message.RoomMsgProto.RoomMsg, Builder> implements
+        // @@protoc_insertion_point(builder_implements:message.RoomMsg)
+        message.RoomMsgProto.RoomMsgOrBuilder {
+      // Construct using message.RoomMsgProto.RoomMsg.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <pre>
+       *房主id
+       * </pre>
+       *
+       * <code>optional string id = 1;</code>
+       */
+      public boolean hasId() {
+        return instance.hasId();
+      }
+      /**
+       * <pre>
+       *房主id
+       * </pre>
+       *
+       * <code>optional string id = 1;</code>
+       */
+      public java.lang.String getId() {
+        return instance.getId();
+      }
+      /**
+       * <pre>
+       *房主id
+       * </pre>
+       *
+       * <code>optional string id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        return instance.getIdBytes();
+      }
+      /**
+       * <pre>
+       *房主id
+       * </pre>
+       *
+       * <code>optional string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setId(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *房主id
+       * </pre>
+       *
+       * <code>optional string id = 1;</code>
+       */
+      public Builder clearId() {
+        copyOnWrite();
+        instance.clearId();
+        return this;
+      }
+      /**
+       * <pre>
+       *房主id
+       * </pre>
+       *
+       * <code>optional string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setIdBytes(value);
+        return this;
+      }
+
+      /**
+       * <pre>
+       *房间状态     1：空闲 2：游戏中
+       * </pre>
+       *
+       * <code>optional int32 status = 2;</code>
+       */
+      public boolean hasStatus() {
+        return instance.hasStatus();
+      }
+      /**
+       * <pre>
+       *房间状态     1：空闲 2：游戏中
+       * </pre>
+       *
+       * <code>optional int32 status = 2;</code>
+       */
+      public int getStatus() {
+        return instance.getStatus();
+      }
+      /**
+       * <pre>
+       *房间状态     1：空闲 2：游戏中
+       * </pre>
+       *
+       * <code>optional int32 status = 2;</code>
+       */
+      public Builder setStatus(int value) {
+        copyOnWrite();
+        instance.setStatus(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间状态     1：空闲 2：游戏中
+       * </pre>
+       *
+       * <code>optional int32 status = 2;</code>
+       */
+      public Builder clearStatus() {
+        copyOnWrite();
+        instance.clearStatus();
+        return this;
+      }
+
+      /**
+       * <pre>
+       *房间成员 &lt;位置，玩家信息&gt;
+       * </pre>
+       *
+       * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+       */
+      public java.util.List<message.RoomMsgProto.JoinerListMsg> getJoinerListMsgList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getJoinerListMsgList());
+      }
+      /**
+       * <pre>
+       *房间成员 &lt;位置，玩家信息&gt;
+       * </pre>
+       *
+       * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+       */
+      public int getJoinerListMsgCount() {
+        return instance.getJoinerListMsgCount();
+      }/**
+       * <pre>
+       *房间成员 &lt;位置，玩家信息&gt;
+       * </pre>
+       *
+       * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+       */
+      public message.RoomMsgProto.JoinerListMsg getJoinerListMsg(int index) {
+        return instance.getJoinerListMsg(index);
+      }
+      /**
+       * <pre>
+       *房间成员 &lt;位置，玩家信息&gt;
+       * </pre>
+       *
+       * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+       */
+      public Builder setJoinerListMsg(
+          int index, message.RoomMsgProto.JoinerListMsg value) {
+        copyOnWrite();
+        instance.setJoinerListMsg(index, value);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间成员 &lt;位置，玩家信息&gt;
+       * </pre>
+       *
+       * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+       */
+      public Builder setJoinerListMsg(
+          int index, message.RoomMsgProto.JoinerListMsg.Builder builderForValue) {
+        copyOnWrite();
+        instance.setJoinerListMsg(index, builderForValue);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间成员 &lt;位置，玩家信息&gt;
+       * </pre>
+       *
+       * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+       */
+      public Builder addJoinerListMsg(message.RoomMsgProto.JoinerListMsg value) {
+        copyOnWrite();
+        instance.addJoinerListMsg(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间成员 &lt;位置，玩家信息&gt;
+       * </pre>
+       *
+       * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+       */
+      public Builder addJoinerListMsg(
+          int index, message.RoomMsgProto.JoinerListMsg value) {
+        copyOnWrite();
+        instance.addJoinerListMsg(index, value);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间成员 &lt;位置，玩家信息&gt;
+       * </pre>
+       *
+       * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+       */
+      public Builder addJoinerListMsg(
+          message.RoomMsgProto.JoinerListMsg.Builder builderForValue) {
+        copyOnWrite();
+        instance.addJoinerListMsg(builderForValue);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间成员 &lt;位置，玩家信息&gt;
+       * </pre>
+       *
+       * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+       */
+      public Builder addJoinerListMsg(
+          int index, message.RoomMsgProto.JoinerListMsg.Builder builderForValue) {
+        copyOnWrite();
+        instance.addJoinerListMsg(index, builderForValue);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间成员 &lt;位置，玩家信息&gt;
+       * </pre>
+       *
+       * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+       */
+      public Builder addAllJoinerListMsg(
+          java.lang.Iterable<? extends message.RoomMsgProto.JoinerListMsg> values) {
+        copyOnWrite();
+        instance.addAllJoinerListMsg(values);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间成员 &lt;位置，玩家信息&gt;
+       * </pre>
+       *
+       * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+       */
+      public Builder clearJoinerListMsg() {
+        copyOnWrite();
+        instance.clearJoinerListMsg();
+        return this;
+      }
+      /**
+       * <pre>
+       *房间成员 &lt;位置，玩家信息&gt;
+       * </pre>
+       *
+       * <code>repeated .message.JoinerListMsg joinerListMsg = 3;</code>
+       */
+      public Builder removeJoinerListMsg(int index) {
+        copyOnWrite();
+        instance.removeJoinerListMsg(index);
+        return this;
+      }
+
+      /**
+       * <pre>
+       *房间信息记录
+       * </pre>
+       *
+       * <code>repeated .message.GameMsgPro msgs = 4;</code>
+       */
+      public java.util.List<message.RoomMsgProto.GameMsgPro> getMsgsList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getMsgsList());
+      }
+      /**
+       * <pre>
+       *房间信息记录
+       * </pre>
+       *
+       * <code>repeated .message.GameMsgPro msgs = 4;</code>
+       */
+      public int getMsgsCount() {
+        return instance.getMsgsCount();
+      }/**
+       * <pre>
+       *房间信息记录
+       * </pre>
+       *
+       * <code>repeated .message.GameMsgPro msgs = 4;</code>
+       */
+      public message.RoomMsgProto.GameMsgPro getMsgs(int index) {
+        return instance.getMsgs(index);
+      }
+      /**
+       * <pre>
+       *房间信息记录
+       * </pre>
+       *
+       * <code>repeated .message.GameMsgPro msgs = 4;</code>
+       */
+      public Builder setMsgs(
+          int index, message.RoomMsgProto.GameMsgPro value) {
+        copyOnWrite();
+        instance.setMsgs(index, value);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间信息记录
+       * </pre>
+       *
+       * <code>repeated .message.GameMsgPro msgs = 4;</code>
+       */
+      public Builder setMsgs(
+          int index, message.RoomMsgProto.GameMsgPro.Builder builderForValue) {
+        copyOnWrite();
+        instance.setMsgs(index, builderForValue);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间信息记录
+       * </pre>
+       *
+       * <code>repeated .message.GameMsgPro msgs = 4;</code>
+       */
+      public Builder addMsgs(message.RoomMsgProto.GameMsgPro value) {
+        copyOnWrite();
+        instance.addMsgs(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间信息记录
+       * </pre>
+       *
+       * <code>repeated .message.GameMsgPro msgs = 4;</code>
+       */
+      public Builder addMsgs(
+          int index, message.RoomMsgProto.GameMsgPro value) {
+        copyOnWrite();
+        instance.addMsgs(index, value);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间信息记录
+       * </pre>
+       *
+       * <code>repeated .message.GameMsgPro msgs = 4;</code>
+       */
+      public Builder addMsgs(
+          message.RoomMsgProto.GameMsgPro.Builder builderForValue) {
+        copyOnWrite();
+        instance.addMsgs(builderForValue);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间信息记录
+       * </pre>
+       *
+       * <code>repeated .message.GameMsgPro msgs = 4;</code>
+       */
+      public Builder addMsgs(
+          int index, message.RoomMsgProto.GameMsgPro.Builder builderForValue) {
+        copyOnWrite();
+        instance.addMsgs(index, builderForValue);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间信息记录
+       * </pre>
+       *
+       * <code>repeated .message.GameMsgPro msgs = 4;</code>
+       */
+      public Builder addAllMsgs(
+          java.lang.Iterable<? extends message.RoomMsgProto.GameMsgPro> values) {
+        copyOnWrite();
+        instance.addAllMsgs(values);
+        return this;
+      }
+      /**
+       * <pre>
+       *房间信息记录
+       * </pre>
+       *
+       * <code>repeated .message.GameMsgPro msgs = 4;</code>
+       */
+      public Builder clearMsgs() {
+        copyOnWrite();
+        instance.clearMsgs();
+        return this;
+      }
+      /**
+       * <pre>
+       *房间信息记录
+       * </pre>
+       *
+       * <code>repeated .message.GameMsgPro msgs = 4;</code>
+       */
+      public Builder removeMsgs(int index) {
+        copyOnWrite();
+        instance.removeMsgs(index);
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:message.RoomMsg)
+    }
+    protected final Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        Object arg0, Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new message.RoomMsgProto.RoomMsg();
+        }
+        case IS_INITIALIZED: {
+          return DEFAULT_INSTANCE;
+        }
+        case MAKE_IMMUTABLE: {
+          joinerListMsg_.makeImmutable();
+          msgs_.makeImmutable();
+          return null;
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case VISIT: {
+          Visitor visitor = (Visitor) arg0;
+          message.RoomMsgProto.RoomMsg other = (message.RoomMsgProto.RoomMsg) arg1;
+          id_ = visitor.visitString(
+              hasId(), id_,
+              other.hasId(), other.id_);
+          status_ = visitor.visitInt(
+              hasStatus(), status_,
+              other.hasStatus(), other.status_);
+          joinerListMsg_= visitor.visitList(joinerListMsg_, other.joinerListMsg_);
+          msgs_= visitor.visitList(msgs_, other.msgs_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+              .INSTANCE) {
+            bitField0_ |= other.bitField0_;
+          }
+          return this;
+        }
+        case MERGE_FROM_STREAM: {
+          com.google.protobuf.CodedInputStream input =
+              (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!parseUnknownField(tag, input)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 10: {
+                  String s = input.readString();
+                  bitField0_ |= 0x00000001;
+                  id_ = s;
+                  break;
+                }
+                case 16: {
+                  bitField0_ |= 0x00000002;
+                  status_ = input.readInt32();
+                  break;
+                }
+                case 26: {
+                  if (!joinerListMsg_.isModifiable()) {
+                    joinerListMsg_ =
+                        com.google.protobuf.GeneratedMessageLite.mutableCopy(joinerListMsg_);
+                  }
+                  joinerListMsg_.add(
+                      input.readMessage(message.RoomMsgProto.JoinerListMsg.parser(), extensionRegistry));
+                  break;
+                }
+                case 34: {
+                  if (!msgs_.isModifiable()) {
+                    msgs_ =
+                        com.google.protobuf.GeneratedMessageLite.mutableCopy(msgs_);
+                  }
+                  msgs_.add(
+                      input.readMessage(message.RoomMsgProto.GameMsgPro.parser(), extensionRegistry));
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(
+                    e.getMessage()).setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          if (PARSER == null) {    synchronized (message.RoomMsgProto.RoomMsg.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              }
+            }
+          }
+          return PARSER;
+        }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:message.RoomMsg)
+    private static final message.RoomMsgProto.RoomMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new RoomMsg();
+      DEFAULT_INSTANCE.makeImmutable();
+    }
+
+    public static message.RoomMsgProto.RoomMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<RoomMsg> PARSER;
+
+    public static com.google.protobuf.Parser<RoomMsg> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface GameMsgProOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:message.GameMsgPro)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <pre>
+     *时间
+     * </pre>
+     *
+     * <code>optional uint64 time = 1;</code>
+     */
+    boolean hasTime();
+    /**
+     * <pre>
+     *时间
+     * </pre>
+     *
+     * <code>optional uint64 time = 1;</code>
+     */
+    long getTime();
+
+    /**
+     * <pre>
+     *0:系统;1：玩家   GameMsgType
+     * </pre>
+     *
+     * <code>optional int32 type = 2;</code>
+     */
+    boolean hasType();
+    /**
+     * <pre>
+     *0:系统;1：玩家   GameMsgType
+     * </pre>
+     *
+     * <code>optional int32 type = 2;</code>
+     */
+    int getType();
+
+    /**
+     * <pre>
+     *玩家发送信息
+     * </pre>
+     *
+     * <code>optional string pMsg = 3;</code>
+     */
+    boolean hasPMsg();
+    /**
+     * <pre>
+     *玩家发送信息
+     * </pre>
+     *
+     * <code>optional string pMsg = 3;</code>
+     */
+    java.lang.String getPMsg();
+    /**
+     * <pre>
+     *玩家发送信息
+     * </pre>
+     *
+     * <code>optional string pMsg = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getPMsgBytes();
+
+    /**
+     * <pre>
+     *系统信息
+     * </pre>
+     *
+     * <code>optional .message.SysMsgPro sys = 4;</code>
+     */
+    boolean hasSys();
+    /**
+     * <pre>
+     *系统信息
+     * </pre>
+     *
+     * <code>optional .message.SysMsgPro sys = 4;</code>
+     */
+    message.RoomMsgProto.SysMsgPro getSys();
+  }
+  /**
+   * Protobuf type {@code message.GameMsgPro}
+   */
+  public  static final class GameMsgPro extends
+      com.google.protobuf.GeneratedMessageLite<
+          GameMsgPro, GameMsgPro.Builder> implements
+      // @@protoc_insertion_point(message_implements:message.GameMsgPro)
+      GameMsgProOrBuilder {
+    private GameMsgPro() {
+      pMsg_ = "";
+    }
+    private int bitField0_;
+    public static final int TIME_FIELD_NUMBER = 1;
+    private long time_;
+    /**
+     * <pre>
+     *时间
+     * </pre>
+     *
+     * <code>optional uint64 time = 1;</code>
+     */
+    public boolean hasTime() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *时间
+     * </pre>
+     *
+     * <code>optional uint64 time = 1;</code>
+     */
+    public long getTime() {
+      return time_;
+    }
+    /**
+     * <pre>
+     *时间
+     * </pre>
+     *
+     * <code>optional uint64 time = 1;</code>
+     */
+    private void setTime(long value) {
+      bitField0_ |= 0x00000001;
+      time_ = value;
+    }
+    /**
+     * <pre>
+     *时间
+     * </pre>
+     *
+     * <code>optional uint64 time = 1;</code>
+     */
+    private void clearTime() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      time_ = 0L;
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 2;
+    private int type_;
+    /**
+     * <pre>
+     *0:系统;1：玩家   GameMsgType
+     * </pre>
+     *
+     * <code>optional int32 type = 2;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *0:系统;1：玩家   GameMsgType
+     * </pre>
+     *
+     * <code>optional int32 type = 2;</code>
+     */
+    public int getType() {
+      return type_;
+    }
+    /**
+     * <pre>
+     *0:系统;1：玩家   GameMsgType
+     * </pre>
+     *
+     * <code>optional int32 type = 2;</code>
+     */
+    private void setType(int value) {
+      bitField0_ |= 0x00000002;
+      type_ = value;
+    }
+    /**
+     * <pre>
+     *0:系统;1：玩家   GameMsgType
+     * </pre>
+     *
+     * <code>optional int32 type = 2;</code>
+     */
+    private void clearType() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      type_ = 0;
+    }
+
+    public static final int PMSG_FIELD_NUMBER = 3;
+    private java.lang.String pMsg_;
+    /**
+     * <pre>
+     *玩家发送信息
+     * </pre>
+     *
+     * <code>optional string pMsg = 3;</code>
+     */
+    public boolean hasPMsg() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     *玩家发送信息
+     * </pre>
+     *
+     * <code>optional string pMsg = 3;</code>
+     */
+    public java.lang.String getPMsg() {
+      return pMsg_;
+    }
+    /**
+     * <pre>
+     *玩家发送信息
+     * </pre>
+     *
+     * <code>optional string pMsg = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPMsgBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(pMsg_);
+    }
+    /**
+     * <pre>
+     *玩家发送信息
+     * </pre>
+     *
+     * <code>optional string pMsg = 3;</code>
+     */
+    private void setPMsg(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+      pMsg_ = value;
+    }
+    /**
+     * <pre>
+     *玩家发送信息
+     * </pre>
+     *
+     * <code>optional string pMsg = 3;</code>
+     */
+    private void clearPMsg() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      pMsg_ = getDefaultInstance().getPMsg();
+    }
+    /**
+     * <pre>
+     *玩家发送信息
+     * </pre>
+     *
+     * <code>optional string pMsg = 3;</code>
+     */
+    private void setPMsgBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+      pMsg_ = value.toStringUtf8();
+    }
+
+    public static final int SYS_FIELD_NUMBER = 4;
+    private message.RoomMsgProto.SysMsgPro sys_;
+    /**
+     * <pre>
+     *系统信息
+     * </pre>
+     *
+     * <code>optional .message.SysMsgPro sys = 4;</code>
+     */
+    public boolean hasSys() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     *系统信息
+     * </pre>
+     *
+     * <code>optional .message.SysMsgPro sys = 4;</code>
+     */
+    public message.RoomMsgProto.SysMsgPro getSys() {
+      return sys_ == null ? message.RoomMsgProto.SysMsgPro.getDefaultInstance() : sys_;
+    }
+    /**
+     * <pre>
+     *系统信息
+     * </pre>
+     *
+     * <code>optional .message.SysMsgPro sys = 4;</code>
+     */
+    private void setSys(message.RoomMsgProto.SysMsgPro value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      sys_ = value;
+      bitField0_ |= 0x00000008;
+      }
+    /**
+     * <pre>
+     *系统信息
+     * </pre>
+     *
+     * <code>optional .message.SysMsgPro sys = 4;</code>
+     */
+    private void setSys(
+        message.RoomMsgProto.SysMsgPro.Builder builderForValue) {
+      sys_ = builderForValue.build();
+      bitField0_ |= 0x00000008;
+    }
+    /**
+     * <pre>
+     *系统信息
+     * </pre>
+     *
+     * <code>optional .message.SysMsgPro sys = 4;</code>
+     */
+    private void mergeSys(message.RoomMsgProto.SysMsgPro value) {
+      if (sys_ != null &&
+          sys_ != message.RoomMsgProto.SysMsgPro.getDefaultInstance()) {
+        sys_ =
+          message.RoomMsgProto.SysMsgPro.newBuilder(sys_).mergeFrom(value).buildPartial();
+      } else {
+        sys_ = value;
+      }
+      bitField0_ |= 0x00000008;
+    }
+    /**
+     * <pre>
+     *系统信息
+     * </pre>
+     *
+     * <code>optional .message.SysMsgPro sys = 4;</code>
+     */
+    private void clearSys() {  sys_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt64(1, time_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, type_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeString(3, getPMsg());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, getSys());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, time_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, type_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(3, getPMsg());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getSys());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    public static message.RoomMsgProto.GameMsgPro parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static message.RoomMsgProto.GameMsgPro parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static message.RoomMsgProto.GameMsgPro parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static message.RoomMsgProto.GameMsgPro parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static message.RoomMsgProto.GameMsgPro parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.GameMsgPro parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static message.RoomMsgProto.GameMsgPro parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.GameMsgPro parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static message.RoomMsgProto.GameMsgPro parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.GameMsgPro parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(message.RoomMsgProto.GameMsgPro prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    /**
+     * Protobuf type {@code message.GameMsgPro}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          message.RoomMsgProto.GameMsgPro, Builder> implements
+        // @@protoc_insertion_point(builder_implements:message.GameMsgPro)
+        message.RoomMsgProto.GameMsgProOrBuilder {
+      // Construct using message.RoomMsgProto.GameMsgPro.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <pre>
+       *时间
+       * </pre>
+       *
+       * <code>optional uint64 time = 1;</code>
+       */
+      public boolean hasTime() {
+        return instance.hasTime();
+      }
+      /**
+       * <pre>
+       *时间
+       * </pre>
+       *
+       * <code>optional uint64 time = 1;</code>
+       */
+      public long getTime() {
+        return instance.getTime();
+      }
+      /**
+       * <pre>
+       *时间
+       * </pre>
+       *
+       * <code>optional uint64 time = 1;</code>
+       */
+      public Builder setTime(long value) {
+        copyOnWrite();
+        instance.setTime(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *时间
+       * </pre>
+       *
+       * <code>optional uint64 time = 1;</code>
+       */
+      public Builder clearTime() {
+        copyOnWrite();
+        instance.clearTime();
+        return this;
+      }
+
+      /**
+       * <pre>
+       *0:系统;1：玩家   GameMsgType
+       * </pre>
+       *
+       * <code>optional int32 type = 2;</code>
+       */
+      public boolean hasType() {
+        return instance.hasType();
+      }
+      /**
+       * <pre>
+       *0:系统;1：玩家   GameMsgType
+       * </pre>
+       *
+       * <code>optional int32 type = 2;</code>
+       */
+      public int getType() {
+        return instance.getType();
+      }
+      /**
+       * <pre>
+       *0:系统;1：玩家   GameMsgType
+       * </pre>
+       *
+       * <code>optional int32 type = 2;</code>
+       */
+      public Builder setType(int value) {
+        copyOnWrite();
+        instance.setType(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *0:系统;1：玩家   GameMsgType
+       * </pre>
+       *
+       * <code>optional int32 type = 2;</code>
+       */
+      public Builder clearType() {
+        copyOnWrite();
+        instance.clearType();
+        return this;
+      }
+
+      /**
+       * <pre>
+       *玩家发送信息
+       * </pre>
+       *
+       * <code>optional string pMsg = 3;</code>
+       */
+      public boolean hasPMsg() {
+        return instance.hasPMsg();
+      }
+      /**
+       * <pre>
+       *玩家发送信息
+       * </pre>
+       *
+       * <code>optional string pMsg = 3;</code>
+       */
+      public java.lang.String getPMsg() {
+        return instance.getPMsg();
+      }
+      /**
+       * <pre>
+       *玩家发送信息
+       * </pre>
+       *
+       * <code>optional string pMsg = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPMsgBytes() {
+        return instance.getPMsgBytes();
+      }
+      /**
+       * <pre>
+       *玩家发送信息
+       * </pre>
+       *
+       * <code>optional string pMsg = 3;</code>
+       */
+      public Builder setPMsg(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setPMsg(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *玩家发送信息
+       * </pre>
+       *
+       * <code>optional string pMsg = 3;</code>
+       */
+      public Builder clearPMsg() {
+        copyOnWrite();
+        instance.clearPMsg();
+        return this;
+      }
+      /**
+       * <pre>
+       *玩家发送信息
+       * </pre>
+       *
+       * <code>optional string pMsg = 3;</code>
+       */
+      public Builder setPMsgBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setPMsgBytes(value);
+        return this;
+      }
+
+      /**
+       * <pre>
+       *系统信息
+       * </pre>
+       *
+       * <code>optional .message.SysMsgPro sys = 4;</code>
+       */
+      public boolean hasSys() {
+        return instance.hasSys();
+      }
+      /**
+       * <pre>
+       *系统信息
+       * </pre>
+       *
+       * <code>optional .message.SysMsgPro sys = 4;</code>
+       */
+      public message.RoomMsgProto.SysMsgPro getSys() {
+        return instance.getSys();
+      }
+      /**
+       * <pre>
+       *系统信息
+       * </pre>
+       *
+       * <code>optional .message.SysMsgPro sys = 4;</code>
+       */
+      public Builder setSys(message.RoomMsgProto.SysMsgPro value) {
+        copyOnWrite();
+        instance.setSys(value);
+        return this;
+        }
+      /**
+       * <pre>
+       *系统信息
+       * </pre>
+       *
+       * <code>optional .message.SysMsgPro sys = 4;</code>
+       */
+      public Builder setSys(
+          message.RoomMsgProto.SysMsgPro.Builder builderForValue) {
+        copyOnWrite();
+        instance.setSys(builderForValue);
+        return this;
+      }
+      /**
+       * <pre>
+       *系统信息
+       * </pre>
+       *
+       * <code>optional .message.SysMsgPro sys = 4;</code>
+       */
+      public Builder mergeSys(message.RoomMsgProto.SysMsgPro value) {
+        copyOnWrite();
+        instance.mergeSys(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *系统信息
+       * </pre>
+       *
+       * <code>optional .message.SysMsgPro sys = 4;</code>
+       */
+      public Builder clearSys() {  copyOnWrite();
+        instance.clearSys();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:message.GameMsgPro)
+    }
+    protected final Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        Object arg0, Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new message.RoomMsgProto.GameMsgPro();
+        }
+        case IS_INITIALIZED: {
+          return DEFAULT_INSTANCE;
+        }
+        case MAKE_IMMUTABLE: {
+          return null;
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case VISIT: {
+          Visitor visitor = (Visitor) arg0;
+          message.RoomMsgProto.GameMsgPro other = (message.RoomMsgProto.GameMsgPro) arg1;
+          time_ = visitor.visitLong(
+              hasTime(), time_,
+              other.hasTime(), other.time_);
+          type_ = visitor.visitInt(
+              hasType(), type_,
+              other.hasType(), other.type_);
+          pMsg_ = visitor.visitString(
+              hasPMsg(), pMsg_,
+              other.hasPMsg(), other.pMsg_);
+          sys_ = visitor.visitMessage(sys_, other.sys_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+              .INSTANCE) {
+            bitField0_ |= other.bitField0_;
+          }
+          return this;
+        }
+        case MERGE_FROM_STREAM: {
+          com.google.protobuf.CodedInputStream input =
+              (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!parseUnknownField(tag, input)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 8: {
+                  bitField0_ |= 0x00000001;
+                  time_ = input.readUInt64();
+                  break;
+                }
+                case 16: {
+                  bitField0_ |= 0x00000002;
+                  type_ = input.readInt32();
+                  break;
+                }
+                case 26: {
+                  String s = input.readString();
+                  bitField0_ |= 0x00000004;
+                  pMsg_ = s;
+                  break;
+                }
+                case 34: {
+                  message.RoomMsgProto.SysMsgPro.Builder subBuilder = null;
+                  if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                    subBuilder = sys_.toBuilder();
+                  }
+                  sys_ = input.readMessage(message.RoomMsgProto.SysMsgPro.parser(), extensionRegistry);
+                  if (subBuilder != null) {
+                    subBuilder.mergeFrom(sys_);
+                    sys_ = subBuilder.buildPartial();
+                  }
+                  bitField0_ |= 0x00000008;
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(
+                    e.getMessage()).setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          if (PARSER == null) {    synchronized (message.RoomMsgProto.GameMsgPro.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              }
+            }
+          }
+          return PARSER;
+        }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:message.GameMsgPro)
+    private static final message.RoomMsgProto.GameMsgPro DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new GameMsgPro();
+      DEFAULT_INSTANCE.makeImmutable();
+    }
+
+    public static message.RoomMsgProto.GameMsgPro getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<GameMsgPro> PARSER;
+
+    public static com.google.protobuf.Parser<GameMsgPro> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface SysMsgProOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:message.SysMsgPro)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <pre>
+     *枚举类型 SysMsgType
+     * </pre>
+     *
+     * <code>optional int32 type = 1;</code>
+     */
+    boolean hasType();
+    /**
+     * <pre>
+     *枚举类型 SysMsgType
+     * </pre>
+     *
+     * <code>optional int32 type = 1;</code>
+     */
+    int getType();
+
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional int32 target1 = 2;</code>
+     */
+    boolean hasTarget1();
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional int32 target1 = 2;</code>
+     */
+    int getTarget1();
+
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional int32 target2 = 3;</code>
+     */
+    boolean hasTarget2();
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional int32 target2 = 3;</code>
+     */
+    int getTarget2();
+  }
+  /**
+   * Protobuf type {@code message.SysMsgPro}
+   */
+  public  static final class SysMsgPro extends
+      com.google.protobuf.GeneratedMessageLite<
+          SysMsgPro, SysMsgPro.Builder> implements
+      // @@protoc_insertion_point(message_implements:message.SysMsgPro)
+      SysMsgProOrBuilder {
+    private SysMsgPro() {
+    }
+    private int bitField0_;
+    public static final int TYPE_FIELD_NUMBER = 1;
+    private int type_;
+    /**
+     * <pre>
+     *枚举类型 SysMsgType
+     * </pre>
+     *
+     * <code>optional int32 type = 1;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *枚举类型 SysMsgType
+     * </pre>
+     *
+     * <code>optional int32 type = 1;</code>
+     */
+    public int getType() {
+      return type_;
+    }
+    /**
+     * <pre>
+     *枚举类型 SysMsgType
+     * </pre>
+     *
+     * <code>optional int32 type = 1;</code>
+     */
+    private void setType(int value) {
+      bitField0_ |= 0x00000001;
+      type_ = value;
+    }
+    /**
+     * <pre>
+     *枚举类型 SysMsgType
+     * </pre>
+     *
+     * <code>optional int32 type = 1;</code>
+     */
+    private void clearType() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      type_ = 0;
+    }
+
+    public static final int TARGET1_FIELD_NUMBER = 2;
+    private int target1_;
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional int32 target1 = 2;</code>
+     */
+    public boolean hasTarget1() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional int32 target1 = 2;</code>
+     */
+    public int getTarget1() {
+      return target1_;
+    }
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional int32 target1 = 2;</code>
+     */
+    private void setTarget1(int value) {
+      bitField0_ |= 0x00000002;
+      target1_ = value;
+    }
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional int32 target1 = 2;</code>
+     */
+    private void clearTarget1() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      target1_ = 0;
+    }
+
+    public static final int TARGET2_FIELD_NUMBER = 3;
+    private int target2_;
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional int32 target2 = 3;</code>
+     */
+    public boolean hasTarget2() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional int32 target2 = 3;</code>
+     */
+    public int getTarget2() {
+      return target2_;
+    }
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional int32 target2 = 3;</code>
+     */
+    private void setTarget2(int value) {
+      bitField0_ |= 0x00000004;
+      target2_ = value;
+    }
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional int32 target2 = 3;</code>
+     */
+    private void clearTarget2() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      target2_ = 0;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, type_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, target1_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, target2_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, type_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, target1_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, target2_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    public static message.RoomMsgProto.SysMsgPro parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static message.RoomMsgProto.SysMsgPro parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static message.RoomMsgProto.SysMsgPro parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static message.RoomMsgProto.SysMsgPro parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static message.RoomMsgProto.SysMsgPro parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.SysMsgPro parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static message.RoomMsgProto.SysMsgPro parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.SysMsgPro parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static message.RoomMsgProto.SysMsgPro parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.SysMsgPro parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(message.RoomMsgProto.SysMsgPro prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    /**
+     * Protobuf type {@code message.SysMsgPro}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          message.RoomMsgProto.SysMsgPro, Builder> implements
+        // @@protoc_insertion_point(builder_implements:message.SysMsgPro)
+        message.RoomMsgProto.SysMsgProOrBuilder {
+      // Construct using message.RoomMsgProto.SysMsgPro.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <pre>
+       *枚举类型 SysMsgType
+       * </pre>
+       *
+       * <code>optional int32 type = 1;</code>
+       */
+      public boolean hasType() {
+        return instance.hasType();
+      }
+      /**
+       * <pre>
+       *枚举类型 SysMsgType
+       * </pre>
+       *
+       * <code>optional int32 type = 1;</code>
+       */
+      public int getType() {
+        return instance.getType();
+      }
+      /**
+       * <pre>
+       *枚举类型 SysMsgType
+       * </pre>
+       *
+       * <code>optional int32 type = 1;</code>
+       */
+      public Builder setType(int value) {
+        copyOnWrite();
+        instance.setType(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *枚举类型 SysMsgType
+       * </pre>
+       *
+       * <code>optional int32 type = 1;</code>
+       */
+      public Builder clearType() {
+        copyOnWrite();
+        instance.clearType();
+        return this;
+      }
+
+      /**
+       * <pre>
+       * </pre>
+       *
+       * <code>optional int32 target1 = 2;</code>
+       */
+      public boolean hasTarget1() {
+        return instance.hasTarget1();
+      }
+      /**
+       * <pre>
+       * </pre>
+       *
+       * <code>optional int32 target1 = 2;</code>
+       */
+      public int getTarget1() {
+        return instance.getTarget1();
+      }
+      /**
+       * <pre>
+       * </pre>
+       *
+       * <code>optional int32 target1 = 2;</code>
+       */
+      public Builder setTarget1(int value) {
+        copyOnWrite();
+        instance.setTarget1(value);
+        return this;
+      }
+      /**
+       * <pre>
+       * </pre>
+       *
+       * <code>optional int32 target1 = 2;</code>
+       */
+      public Builder clearTarget1() {
+        copyOnWrite();
+        instance.clearTarget1();
+        return this;
+      }
+
+      /**
+       * <pre>
+       * </pre>
+       *
+       * <code>optional int32 target2 = 3;</code>
+       */
+      public boolean hasTarget2() {
+        return instance.hasTarget2();
+      }
+      /**
+       * <pre>
+       * </pre>
+       *
+       * <code>optional int32 target2 = 3;</code>
+       */
+      public int getTarget2() {
+        return instance.getTarget2();
+      }
+      /**
+       * <pre>
+       * </pre>
+       *
+       * <code>optional int32 target2 = 3;</code>
+       */
+      public Builder setTarget2(int value) {
+        copyOnWrite();
+        instance.setTarget2(value);
+        return this;
+      }
+      /**
+       * <pre>
+       * </pre>
+       *
+       * <code>optional int32 target2 = 3;</code>
+       */
+      public Builder clearTarget2() {
+        copyOnWrite();
+        instance.clearTarget2();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:message.SysMsgPro)
+    }
+    protected final Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        Object arg0, Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new message.RoomMsgProto.SysMsgPro();
+        }
+        case IS_INITIALIZED: {
+          return DEFAULT_INSTANCE;
+        }
+        case MAKE_IMMUTABLE: {
+          return null;
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case VISIT: {
+          Visitor visitor = (Visitor) arg0;
+          message.RoomMsgProto.SysMsgPro other = (message.RoomMsgProto.SysMsgPro) arg1;
+          type_ = visitor.visitInt(
+              hasType(), type_,
+              other.hasType(), other.type_);
+          target1_ = visitor.visitInt(
+              hasTarget1(), target1_,
+              other.hasTarget1(), other.target1_);
+          target2_ = visitor.visitInt(
+              hasTarget2(), target2_,
+              other.hasTarget2(), other.target2_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+              .INSTANCE) {
+            bitField0_ |= other.bitField0_;
+          }
+          return this;
+        }
+        case MERGE_FROM_STREAM: {
+          com.google.protobuf.CodedInputStream input =
+              (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!parseUnknownField(tag, input)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 8: {
+                  bitField0_ |= 0x00000001;
+                  type_ = input.readInt32();
+                  break;
+                }
+                case 16: {
+                  bitField0_ |= 0x00000002;
+                  target1_ = input.readInt32();
+                  break;
+                }
+                case 24: {
+                  bitField0_ |= 0x00000004;
+                  target2_ = input.readInt32();
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(
+                    e.getMessage()).setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          if (PARSER == null) {    synchronized (message.RoomMsgProto.SysMsgPro.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              }
+            }
+          }
+          return PARSER;
+        }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:message.SysMsgPro)
+    private static final message.RoomMsgProto.SysMsgPro DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new SysMsgPro();
+      DEFAULT_INSTANCE.makeImmutable();
+    }
+
+    public static message.RoomMsgProto.SysMsgPro getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<SysMsgPro> PARSER;
+
+    public static com.google.protobuf.Parser<SysMsgPro> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface JoinerListMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:message.JoinerListMsg)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <pre>
+     *位置
+     * </pre>
+     *
+     * <code>optional int32 location = 1;</code>
+     */
+    boolean hasLocation();
+    /**
+     * <pre>
+     *位置
+     * </pre>
+     *
+     * <code>optional int32 location = 1;</code>
+     */
+    int getLocation();
+
+    /**
+     * <pre>
+     *参与者
+     * </pre>
+     *
+     * <code>optional .message.JoinerMsg joiner = 2;</code>
+     */
+    boolean hasJoiner();
+    /**
+     * <pre>
+     *参与者
+     * </pre>
+     *
+     * <code>optional .message.JoinerMsg joiner = 2;</code>
+     */
+    message.RoomMsgProto.JoinerMsg getJoiner();
+  }
+  /**
+   * Protobuf type {@code message.JoinerListMsg}
+   */
+  public  static final class JoinerListMsg extends
+      com.google.protobuf.GeneratedMessageLite<
+          JoinerListMsg, JoinerListMsg.Builder> implements
+      // @@protoc_insertion_point(message_implements:message.JoinerListMsg)
+      JoinerListMsgOrBuilder {
+    private JoinerListMsg() {
+    }
+    private int bitField0_;
+    public static final int LOCATION_FIELD_NUMBER = 1;
+    private int location_;
+    /**
+     * <pre>
+     *位置
+     * </pre>
+     *
+     * <code>optional int32 location = 1;</code>
+     */
+    public boolean hasLocation() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *位置
+     * </pre>
+     *
+     * <code>optional int32 location = 1;</code>
+     */
+    public int getLocation() {
+      return location_;
+    }
+    /**
+     * <pre>
+     *位置
+     * </pre>
+     *
+     * <code>optional int32 location = 1;</code>
+     */
+    private void setLocation(int value) {
+      bitField0_ |= 0x00000001;
+      location_ = value;
+    }
+    /**
+     * <pre>
+     *位置
+     * </pre>
+     *
+     * <code>optional int32 location = 1;</code>
+     */
+    private void clearLocation() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      location_ = 0;
+    }
+
+    public static final int JOINER_FIELD_NUMBER = 2;
+    private message.RoomMsgProto.JoinerMsg joiner_;
+    /**
+     * <pre>
+     *参与者
+     * </pre>
+     *
+     * <code>optional .message.JoinerMsg joiner = 2;</code>
+     */
+    public boolean hasJoiner() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *参与者
+     * </pre>
+     *
+     * <code>optional .message.JoinerMsg joiner = 2;</code>
+     */
+    public message.RoomMsgProto.JoinerMsg getJoiner() {
+      return joiner_ == null ? message.RoomMsgProto.JoinerMsg.getDefaultInstance() : joiner_;
+    }
+    /**
+     * <pre>
+     *参与者
+     * </pre>
+     *
+     * <code>optional .message.JoinerMsg joiner = 2;</code>
+     */
+    private void setJoiner(message.RoomMsgProto.JoinerMsg value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      joiner_ = value;
+      bitField0_ |= 0x00000002;
+      }
+    /**
+     * <pre>
+     *参与者
+     * </pre>
+     *
+     * <code>optional .message.JoinerMsg joiner = 2;</code>
+     */
+    private void setJoiner(
+        message.RoomMsgProto.JoinerMsg.Builder builderForValue) {
+      joiner_ = builderForValue.build();
+      bitField0_ |= 0x00000002;
+    }
+    /**
+     * <pre>
+     *参与者
+     * </pre>
+     *
+     * <code>optional .message.JoinerMsg joiner = 2;</code>
+     */
+    private void mergeJoiner(message.RoomMsgProto.JoinerMsg value) {
+      if (joiner_ != null &&
+          joiner_ != message.RoomMsgProto.JoinerMsg.getDefaultInstance()) {
+        joiner_ =
+          message.RoomMsgProto.JoinerMsg.newBuilder(joiner_).mergeFrom(value).buildPartial();
+      } else {
+        joiner_ = value;
+      }
+      bitField0_ |= 0x00000002;
+    }
+    /**
+     * <pre>
+     *参与者
+     * </pre>
+     *
+     * <code>optional .message.JoinerMsg joiner = 2;</code>
+     */
+    private void clearJoiner() {  joiner_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, location_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getJoiner());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, location_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getJoiner());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    public static message.RoomMsgProto.JoinerListMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static message.RoomMsgProto.JoinerListMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static message.RoomMsgProto.JoinerListMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static message.RoomMsgProto.JoinerListMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static message.RoomMsgProto.JoinerListMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.JoinerListMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static message.RoomMsgProto.JoinerListMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.JoinerListMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static message.RoomMsgProto.JoinerListMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.JoinerListMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(message.RoomMsgProto.JoinerListMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    /**
+     * Protobuf type {@code message.JoinerListMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          message.RoomMsgProto.JoinerListMsg, Builder> implements
+        // @@protoc_insertion_point(builder_implements:message.JoinerListMsg)
+        message.RoomMsgProto.JoinerListMsgOrBuilder {
+      // Construct using message.RoomMsgProto.JoinerListMsg.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <pre>
+       *位置
+       * </pre>
+       *
+       * <code>optional int32 location = 1;</code>
+       */
+      public boolean hasLocation() {
+        return instance.hasLocation();
+      }
+      /**
+       * <pre>
+       *位置
+       * </pre>
+       *
+       * <code>optional int32 location = 1;</code>
+       */
+      public int getLocation() {
+        return instance.getLocation();
+      }
+      /**
+       * <pre>
+       *位置
+       * </pre>
+       *
+       * <code>optional int32 location = 1;</code>
+       */
+      public Builder setLocation(int value) {
+        copyOnWrite();
+        instance.setLocation(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *位置
+       * </pre>
+       *
+       * <code>optional int32 location = 1;</code>
+       */
+      public Builder clearLocation() {
+        copyOnWrite();
+        instance.clearLocation();
+        return this;
+      }
+
+      /**
+       * <pre>
+       *参与者
+       * </pre>
+       *
+       * <code>optional .message.JoinerMsg joiner = 2;</code>
+       */
+      public boolean hasJoiner() {
+        return instance.hasJoiner();
+      }
+      /**
+       * <pre>
+       *参与者
+       * </pre>
+       *
+       * <code>optional .message.JoinerMsg joiner = 2;</code>
+       */
+      public message.RoomMsgProto.JoinerMsg getJoiner() {
+        return instance.getJoiner();
+      }
+      /**
+       * <pre>
+       *参与者
+       * </pre>
+       *
+       * <code>optional .message.JoinerMsg joiner = 2;</code>
+       */
+      public Builder setJoiner(message.RoomMsgProto.JoinerMsg value) {
+        copyOnWrite();
+        instance.setJoiner(value);
+        return this;
+        }
+      /**
+       * <pre>
+       *参与者
+       * </pre>
+       *
+       * <code>optional .message.JoinerMsg joiner = 2;</code>
+       */
+      public Builder setJoiner(
+          message.RoomMsgProto.JoinerMsg.Builder builderForValue) {
+        copyOnWrite();
+        instance.setJoiner(builderForValue);
+        return this;
+      }
+      /**
+       * <pre>
+       *参与者
+       * </pre>
+       *
+       * <code>optional .message.JoinerMsg joiner = 2;</code>
+       */
+      public Builder mergeJoiner(message.RoomMsgProto.JoinerMsg value) {
+        copyOnWrite();
+        instance.mergeJoiner(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *参与者
+       * </pre>
+       *
+       * <code>optional .message.JoinerMsg joiner = 2;</code>
+       */
+      public Builder clearJoiner() {  copyOnWrite();
+        instance.clearJoiner();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:message.JoinerListMsg)
+    }
+    protected final Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        Object arg0, Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new message.RoomMsgProto.JoinerListMsg();
+        }
+        case IS_INITIALIZED: {
+          return DEFAULT_INSTANCE;
+        }
+        case MAKE_IMMUTABLE: {
+          return null;
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case VISIT: {
+          Visitor visitor = (Visitor) arg0;
+          message.RoomMsgProto.JoinerListMsg other = (message.RoomMsgProto.JoinerListMsg) arg1;
+          location_ = visitor.visitInt(
+              hasLocation(), location_,
+              other.hasLocation(), other.location_);
+          joiner_ = visitor.visitMessage(joiner_, other.joiner_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+              .INSTANCE) {
+            bitField0_ |= other.bitField0_;
+          }
+          return this;
+        }
+        case MERGE_FROM_STREAM: {
+          com.google.protobuf.CodedInputStream input =
+              (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!parseUnknownField(tag, input)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 8: {
+                  bitField0_ |= 0x00000001;
+                  location_ = input.readInt32();
+                  break;
+                }
+                case 18: {
+                  message.RoomMsgProto.JoinerMsg.Builder subBuilder = null;
+                  if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                    subBuilder = joiner_.toBuilder();
+                  }
+                  joiner_ = input.readMessage(message.RoomMsgProto.JoinerMsg.parser(), extensionRegistry);
+                  if (subBuilder != null) {
+                    subBuilder.mergeFrom(joiner_);
+                    joiner_ = subBuilder.buildPartial();
+                  }
+                  bitField0_ |= 0x00000002;
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(
+                    e.getMessage()).setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          if (PARSER == null) {    synchronized (message.RoomMsgProto.JoinerListMsg.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              }
+            }
+          }
+          return PARSER;
+        }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:message.JoinerListMsg)
+    private static final message.RoomMsgProto.JoinerListMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new JoinerListMsg();
+      DEFAULT_INSTANCE.makeImmutable();
+    }
+
+    public static message.RoomMsgProto.JoinerListMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<JoinerListMsg> PARSER;
+
+    public static com.google.protobuf.Parser<JoinerListMsg> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface JoinerMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:message.JoinerMsg)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <pre>
+     *玩家信息
+     * </pre>
+     *
+     * <code>optional .message.PlayerMsg playerMsg = 1;</code>
+     */
+    boolean hasPlayerMsg();
+    /**
+     * <pre>
+     *玩家信息
+     * </pre>
+     *
+     * <code>optional .message.PlayerMsg playerMsg = 1;</code>
+     */
+    message.PlayerProto.PlayerMsg getPlayerMsg();
+
+    /**
+     * <pre>
+     *当前状态 (枚举JoinerStatus)
+     * </pre>
+     *
+     * <code>optional int32 status = 2;</code>
+     */
+    boolean hasStatus();
+    /**
+     * <pre>
+     *当前状态 (枚举JoinerStatus)
+     * </pre>
+     *
+     * <code>optional int32 status = 2;</code>
+     */
+    int getStatus();
+
+    /**
+     * <pre>
+     *死亡原因 (枚举DeadReason)
+     * </pre>
+     *
+     * <code>optional int32 deadReason = 3;</code>
+     */
+    boolean hasDeadReason();
+    /**
+     * <pre>
+     *死亡原因 (枚举DeadReason)
+     * </pre>
+     *
+     * <code>optional int32 deadReason = 3;</code>
+     */
+    int getDeadReason();
+
+    /**
+     * <pre>
+     *角色枚举Role)
+     * </pre>
+     *
+     * <code>optional int32 role = 4;</code>
+     */
+    boolean hasRole();
+    /**
+     * <pre>
+     *角色枚举Role)
+     * </pre>
+     *
+     * <code>optional int32 role = 4;</code>
+     */
+    int getRole();
+  }
+  /**
+   * Protobuf type {@code message.JoinerMsg}
+   */
+  public  static final class JoinerMsg extends
+      com.google.protobuf.GeneratedMessageLite<
+          JoinerMsg, JoinerMsg.Builder> implements
+      // @@protoc_insertion_point(message_implements:message.JoinerMsg)
+      JoinerMsgOrBuilder {
+    private JoinerMsg() {
+    }
+    private int bitField0_;
+    public static final int PLAYERMSG_FIELD_NUMBER = 1;
+    private message.PlayerProto.PlayerMsg playerMsg_;
+    /**
+     * <pre>
+     *玩家信息
+     * </pre>
+     *
+     * <code>optional .message.PlayerMsg playerMsg = 1;</code>
+     */
+    public boolean hasPlayerMsg() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *玩家信息
+     * </pre>
+     *
+     * <code>optional .message.PlayerMsg playerMsg = 1;</code>
+     */
+    public message.PlayerProto.PlayerMsg getPlayerMsg() {
+      return playerMsg_ == null ? message.PlayerProto.PlayerMsg.getDefaultInstance() : playerMsg_;
+    }
+    /**
+     * <pre>
+     *玩家信息
+     * </pre>
+     *
+     * <code>optional .message.PlayerMsg playerMsg = 1;</code>
+     */
+    private void setPlayerMsg(message.PlayerProto.PlayerMsg value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      playerMsg_ = value;
+      bitField0_ |= 0x00000001;
+      }
+    /**
+     * <pre>
+     *玩家信息
+     * </pre>
+     *
+     * <code>optional .message.PlayerMsg playerMsg = 1;</code>
+     */
+    private void setPlayerMsg(
+        message.PlayerProto.PlayerMsg.Builder builderForValue) {
+      playerMsg_ = builderForValue.build();
+      bitField0_ |= 0x00000001;
+    }
+    /**
+     * <pre>
+     *玩家信息
+     * </pre>
+     *
+     * <code>optional .message.PlayerMsg playerMsg = 1;</code>
+     */
+    private void mergePlayerMsg(message.PlayerProto.PlayerMsg value) {
+      if (playerMsg_ != null &&
+          playerMsg_ != message.PlayerProto.PlayerMsg.getDefaultInstance()) {
+        playerMsg_ =
+          message.PlayerProto.PlayerMsg.newBuilder(playerMsg_).mergeFrom(value).buildPartial();
+      } else {
+        playerMsg_ = value;
+      }
+      bitField0_ |= 0x00000001;
+    }
+    /**
+     * <pre>
+     *玩家信息
+     * </pre>
+     *
+     * <code>optional .message.PlayerMsg playerMsg = 1;</code>
+     */
+    private void clearPlayerMsg() {  playerMsg_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 2;
+    private int status_;
+    /**
+     * <pre>
+     *当前状态 (枚举JoinerStatus)
+     * </pre>
+     *
+     * <code>optional int32 status = 2;</code>
+     */
+    public boolean hasStatus() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *当前状态 (枚举JoinerStatus)
+     * </pre>
+     *
+     * <code>optional int32 status = 2;</code>
+     */
+    public int getStatus() {
+      return status_;
+    }
+    /**
+     * <pre>
+     *当前状态 (枚举JoinerStatus)
+     * </pre>
+     *
+     * <code>optional int32 status = 2;</code>
+     */
+    private void setStatus(int value) {
+      bitField0_ |= 0x00000002;
+      status_ = value;
+    }
+    /**
+     * <pre>
+     *当前状态 (枚举JoinerStatus)
+     * </pre>
+     *
+     * <code>optional int32 status = 2;</code>
+     */
+    private void clearStatus() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      status_ = 0;
+    }
+
+    public static final int DEADREASON_FIELD_NUMBER = 3;
+    private int deadReason_;
+    /**
+     * <pre>
+     *死亡原因 (枚举DeadReason)
+     * </pre>
+     *
+     * <code>optional int32 deadReason = 3;</code>
+     */
+    public boolean hasDeadReason() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     *死亡原因 (枚举DeadReason)
+     * </pre>
+     *
+     * <code>optional int32 deadReason = 3;</code>
+     */
+    public int getDeadReason() {
+      return deadReason_;
+    }
+    /**
+     * <pre>
+     *死亡原因 (枚举DeadReason)
+     * </pre>
+     *
+     * <code>optional int32 deadReason = 3;</code>
+     */
+    private void setDeadReason(int value) {
+      bitField0_ |= 0x00000004;
+      deadReason_ = value;
+    }
+    /**
+     * <pre>
+     *死亡原因 (枚举DeadReason)
+     * </pre>
+     *
+     * <code>optional int32 deadReason = 3;</code>
+     */
+    private void clearDeadReason() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      deadReason_ = 0;
+    }
+
+    public static final int ROLE_FIELD_NUMBER = 4;
+    private int role_;
+    /**
+     * <pre>
+     *角色枚举Role)
+     * </pre>
+     *
+     * <code>optional int32 role = 4;</code>
+     */
+    public boolean hasRole() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     *角色枚举Role)
+     * </pre>
+     *
+     * <code>optional int32 role = 4;</code>
+     */
+    public int getRole() {
+      return role_;
+    }
+    /**
+     * <pre>
+     *角色枚举Role)
+     * </pre>
+     *
+     * <code>optional int32 role = 4;</code>
+     */
+    private void setRole(int value) {
+      bitField0_ |= 0x00000008;
+      role_ = value;
+    }
+    /**
+     * <pre>
+     *角色枚举Role)
+     * </pre>
+     *
+     * <code>optional int32 role = 4;</code>
+     */
+    private void clearRole() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      role_ = 0;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getPlayerMsg());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, status_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, deadReason_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, role_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getPlayerMsg());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, status_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, deadReason_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, role_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    public static message.RoomMsgProto.JoinerMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static message.RoomMsgProto.JoinerMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static message.RoomMsgProto.JoinerMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static message.RoomMsgProto.JoinerMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static message.RoomMsgProto.JoinerMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.JoinerMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static message.RoomMsgProto.JoinerMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.JoinerMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static message.RoomMsgProto.JoinerMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.JoinerMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(message.RoomMsgProto.JoinerMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    /**
+     * Protobuf type {@code message.JoinerMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          message.RoomMsgProto.JoinerMsg, Builder> implements
+        // @@protoc_insertion_point(builder_implements:message.JoinerMsg)
+        message.RoomMsgProto.JoinerMsgOrBuilder {
+      // Construct using message.RoomMsgProto.JoinerMsg.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <pre>
+       *玩家信息
+       * </pre>
+       *
+       * <code>optional .message.PlayerMsg playerMsg = 1;</code>
+       */
+      public boolean hasPlayerMsg() {
+        return instance.hasPlayerMsg();
+      }
+      /**
+       * <pre>
+       *玩家信息
+       * </pre>
+       *
+       * <code>optional .message.PlayerMsg playerMsg = 1;</code>
+       */
+      public message.PlayerProto.PlayerMsg getPlayerMsg() {
+        return instance.getPlayerMsg();
+      }
+      /**
+       * <pre>
+       *玩家信息
+       * </pre>
+       *
+       * <code>optional .message.PlayerMsg playerMsg = 1;</code>
+       */
+      public Builder setPlayerMsg(message.PlayerProto.PlayerMsg value) {
+        copyOnWrite();
+        instance.setPlayerMsg(value);
+        return this;
+        }
+      /**
+       * <pre>
+       *玩家信息
+       * </pre>
+       *
+       * <code>optional .message.PlayerMsg playerMsg = 1;</code>
+       */
+      public Builder setPlayerMsg(
+          message.PlayerProto.PlayerMsg.Builder builderForValue) {
+        copyOnWrite();
+        instance.setPlayerMsg(builderForValue);
+        return this;
+      }
+      /**
+       * <pre>
+       *玩家信息
+       * </pre>
+       *
+       * <code>optional .message.PlayerMsg playerMsg = 1;</code>
+       */
+      public Builder mergePlayerMsg(message.PlayerProto.PlayerMsg value) {
+        copyOnWrite();
+        instance.mergePlayerMsg(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *玩家信息
+       * </pre>
+       *
+       * <code>optional .message.PlayerMsg playerMsg = 1;</code>
+       */
+      public Builder clearPlayerMsg() {  copyOnWrite();
+        instance.clearPlayerMsg();
+        return this;
+      }
+
+      /**
+       * <pre>
+       *当前状态 (枚举JoinerStatus)
+       * </pre>
+       *
+       * <code>optional int32 status = 2;</code>
+       */
+      public boolean hasStatus() {
+        return instance.hasStatus();
+      }
+      /**
+       * <pre>
+       *当前状态 (枚举JoinerStatus)
+       * </pre>
+       *
+       * <code>optional int32 status = 2;</code>
+       */
+      public int getStatus() {
+        return instance.getStatus();
+      }
+      /**
+       * <pre>
+       *当前状态 (枚举JoinerStatus)
+       * </pre>
+       *
+       * <code>optional int32 status = 2;</code>
+       */
+      public Builder setStatus(int value) {
+        copyOnWrite();
+        instance.setStatus(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *当前状态 (枚举JoinerStatus)
+       * </pre>
+       *
+       * <code>optional int32 status = 2;</code>
+       */
+      public Builder clearStatus() {
+        copyOnWrite();
+        instance.clearStatus();
+        return this;
+      }
+
+      /**
+       * <pre>
+       *死亡原因 (枚举DeadReason)
+       * </pre>
+       *
+       * <code>optional int32 deadReason = 3;</code>
+       */
+      public boolean hasDeadReason() {
+        return instance.hasDeadReason();
+      }
+      /**
+       * <pre>
+       *死亡原因 (枚举DeadReason)
+       * </pre>
+       *
+       * <code>optional int32 deadReason = 3;</code>
+       */
+      public int getDeadReason() {
+        return instance.getDeadReason();
+      }
+      /**
+       * <pre>
+       *死亡原因 (枚举DeadReason)
+       * </pre>
+       *
+       * <code>optional int32 deadReason = 3;</code>
+       */
+      public Builder setDeadReason(int value) {
+        copyOnWrite();
+        instance.setDeadReason(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *死亡原因 (枚举DeadReason)
+       * </pre>
+       *
+       * <code>optional int32 deadReason = 3;</code>
+       */
+      public Builder clearDeadReason() {
+        copyOnWrite();
+        instance.clearDeadReason();
+        return this;
+      }
+
+      /**
+       * <pre>
+       *角色枚举Role)
+       * </pre>
+       *
+       * <code>optional int32 role = 4;</code>
+       */
+      public boolean hasRole() {
+        return instance.hasRole();
+      }
+      /**
+       * <pre>
+       *角色枚举Role)
+       * </pre>
+       *
+       * <code>optional int32 role = 4;</code>
+       */
+      public int getRole() {
+        return instance.getRole();
+      }
+      /**
+       * <pre>
+       *角色枚举Role)
+       * </pre>
+       *
+       * <code>optional int32 role = 4;</code>
+       */
+      public Builder setRole(int value) {
+        copyOnWrite();
+        instance.setRole(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *角色枚举Role)
+       * </pre>
+       *
+       * <code>optional int32 role = 4;</code>
+       */
+      public Builder clearRole() {
+        copyOnWrite();
+        instance.clearRole();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:message.JoinerMsg)
+    }
+    protected final Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        Object arg0, Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new message.RoomMsgProto.JoinerMsg();
+        }
+        case IS_INITIALIZED: {
+          return DEFAULT_INSTANCE;
+        }
+        case MAKE_IMMUTABLE: {
+          return null;
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case VISIT: {
+          Visitor visitor = (Visitor) arg0;
+          message.RoomMsgProto.JoinerMsg other = (message.RoomMsgProto.JoinerMsg) arg1;
+          playerMsg_ = visitor.visitMessage(playerMsg_, other.playerMsg_);
+          status_ = visitor.visitInt(
+              hasStatus(), status_,
+              other.hasStatus(), other.status_);
+          deadReason_ = visitor.visitInt(
+              hasDeadReason(), deadReason_,
+              other.hasDeadReason(), other.deadReason_);
+          role_ = visitor.visitInt(
+              hasRole(), role_,
+              other.hasRole(), other.role_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+              .INSTANCE) {
+            bitField0_ |= other.bitField0_;
+          }
+          return this;
+        }
+        case MERGE_FROM_STREAM: {
+          com.google.protobuf.CodedInputStream input =
+              (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!parseUnknownField(tag, input)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 10: {
+                  message.PlayerProto.PlayerMsg.Builder subBuilder = null;
+                  if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                    subBuilder = playerMsg_.toBuilder();
+                  }
+                  playerMsg_ = input.readMessage(message.PlayerProto.PlayerMsg.parser(), extensionRegistry);
+                  if (subBuilder != null) {
+                    subBuilder.mergeFrom(playerMsg_);
+                    playerMsg_ = subBuilder.buildPartial();
+                  }
+                  bitField0_ |= 0x00000001;
+                  break;
+                }
+                case 16: {
+                  bitField0_ |= 0x00000002;
+                  status_ = input.readInt32();
+                  break;
+                }
+                case 24: {
+                  bitField0_ |= 0x00000004;
+                  deadReason_ = input.readInt32();
+                  break;
+                }
+                case 32: {
+                  bitField0_ |= 0x00000008;
+                  role_ = input.readInt32();
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(
+                    e.getMessage()).setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          if (PARSER == null) {    synchronized (message.RoomMsgProto.JoinerMsg.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              }
+            }
+          }
+          return PARSER;
+        }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:message.JoinerMsg)
+    private static final message.RoomMsgProto.JoinerMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new JoinerMsg();
+      DEFAULT_INSTANCE.makeImmutable();
+    }
+
+    public static message.RoomMsgProto.JoinerMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<JoinerMsg> PARSER;
+
+    public static com.google.protobuf.Parser<JoinerMsg> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface CreatRoomReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:message.CreatRoomReq)
+      com.google.protobuf.MessageLiteOrBuilder {
+  }
+  /**
+   * <pre>
+   **
+   * 创建房间
+   * </pre>
+   *
+   * Protobuf type {@code message.CreatRoomReq}
+   */
+  public  static final class CreatRoomReq extends
+      com.google.protobuf.GeneratedMessageLite<
+          CreatRoomReq, CreatRoomReq.Builder> implements
+      // @@protoc_insertion_point(message_implements:message.CreatRoomReq)
+      CreatRoomReqOrBuilder {
+    private CreatRoomReq() {
+    }
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    public static message.RoomMsgProto.CreatRoomReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static message.RoomMsgProto.CreatRoomReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static message.RoomMsgProto.CreatRoomReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static message.RoomMsgProto.CreatRoomReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static message.RoomMsgProto.CreatRoomReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.CreatRoomReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static message.RoomMsgProto.CreatRoomReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.CreatRoomReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static message.RoomMsgProto.CreatRoomReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.CreatRoomReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(message.RoomMsgProto.CreatRoomReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    /**
+     * <pre>
+     **
+     * 创建房间
+     * </pre>
+     *
+     * Protobuf type {@code message.CreatRoomReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          message.RoomMsgProto.CreatRoomReq, Builder> implements
+        // @@protoc_insertion_point(builder_implements:message.CreatRoomReq)
+        message.RoomMsgProto.CreatRoomReqOrBuilder {
+      // Construct using message.RoomMsgProto.CreatRoomReq.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:message.CreatRoomReq)
+    }
+    protected final Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        Object arg0, Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new message.RoomMsgProto.CreatRoomReq();
+        }
+        case IS_INITIALIZED: {
+          return DEFAULT_INSTANCE;
+        }
+        case MAKE_IMMUTABLE: {
+          return null;
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case VISIT: {
+          Visitor visitor = (Visitor) arg0;
+          message.RoomMsgProto.CreatRoomReq other = (message.RoomMsgProto.CreatRoomReq) arg1;
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+              .INSTANCE) {
+          }
+          return this;
+        }
+        case MERGE_FROM_STREAM: {
+          com.google.protobuf.CodedInputStream input =
+              (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!parseUnknownField(tag, input)) {
+                    done = true;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(
+                    e.getMessage()).setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          if (PARSER == null) {    synchronized (message.RoomMsgProto.CreatRoomReq.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              }
+            }
+          }
+          return PARSER;
+        }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:message.CreatRoomReq)
+    private static final message.RoomMsgProto.CreatRoomReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new CreatRoomReq();
+      DEFAULT_INSTANCE.makeImmutable();
+    }
+
+    public static message.RoomMsgProto.CreatRoomReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<CreatRoomReq> PARSER;
+
+    public static com.google.protobuf.Parser<CreatRoomReq> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface CreatRoomRspOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:message.CreatRoomRsp)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>optional .message.RoomMsg room = 1;</code>
+     */
+    boolean hasRoom();
+    /**
+     * <code>optional .message.RoomMsg room = 1;</code>
+     */
+    message.RoomMsgProto.RoomMsg getRoom();
+  }
+  /**
+   * Protobuf type {@code message.CreatRoomRsp}
+   */
+  public  static final class CreatRoomRsp extends
+      com.google.protobuf.GeneratedMessageLite<
+          CreatRoomRsp, CreatRoomRsp.Builder> implements
+      // @@protoc_insertion_point(message_implements:message.CreatRoomRsp)
+      CreatRoomRspOrBuilder {
+    private CreatRoomRsp() {
+    }
+    private int bitField0_;
+    public static final int ROOM_FIELD_NUMBER = 1;
+    private message.RoomMsgProto.RoomMsg room_;
+    /**
+     * <code>optional .message.RoomMsg room = 1;</code>
+     */
+    public boolean hasRoom() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional .message.RoomMsg room = 1;</code>
+     */
+    public message.RoomMsgProto.RoomMsg getRoom() {
+      return room_ == null ? message.RoomMsgProto.RoomMsg.getDefaultInstance() : room_;
+    }
+    /**
+     * <code>optional .message.RoomMsg room = 1;</code>
+     */
+    private void setRoom(message.RoomMsgProto.RoomMsg value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      room_ = value;
+      bitField0_ |= 0x00000001;
+      }
+    /**
+     * <code>optional .message.RoomMsg room = 1;</code>
+     */
+    private void setRoom(
+        message.RoomMsgProto.RoomMsg.Builder builderForValue) {
+      room_ = builderForValue.build();
+      bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>optional .message.RoomMsg room = 1;</code>
+     */
+    private void mergeRoom(message.RoomMsgProto.RoomMsg value) {
+      if (room_ != null &&
+          room_ != message.RoomMsgProto.RoomMsg.getDefaultInstance()) {
+        room_ =
+          message.RoomMsgProto.RoomMsg.newBuilder(room_).mergeFrom(value).buildPartial();
+      } else {
+        room_ = value;
+      }
+      bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>optional .message.RoomMsg room = 1;</code>
+     */
+    private void clearRoom() {  room_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getRoom());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getRoom());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    public static message.RoomMsgProto.CreatRoomRsp parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static message.RoomMsgProto.CreatRoomRsp parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static message.RoomMsgProto.CreatRoomRsp parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static message.RoomMsgProto.CreatRoomRsp parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static message.RoomMsgProto.CreatRoomRsp parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.CreatRoomRsp parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static message.RoomMsgProto.CreatRoomRsp parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.CreatRoomRsp parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static message.RoomMsgProto.CreatRoomRsp parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static message.RoomMsgProto.CreatRoomRsp parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(message.RoomMsgProto.CreatRoomRsp prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    /**
+     * Protobuf type {@code message.CreatRoomRsp}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          message.RoomMsgProto.CreatRoomRsp, Builder> implements
+        // @@protoc_insertion_point(builder_implements:message.CreatRoomRsp)
+        message.RoomMsgProto.CreatRoomRspOrBuilder {
+      // Construct using message.RoomMsgProto.CreatRoomRsp.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>optional .message.RoomMsg room = 1;</code>
+       */
+      public boolean hasRoom() {
+        return instance.hasRoom();
+      }
+      /**
+       * <code>optional .message.RoomMsg room = 1;</code>
+       */
+      public message.RoomMsgProto.RoomMsg getRoom() {
+        return instance.getRoom();
+      }
+      /**
+       * <code>optional .message.RoomMsg room = 1;</code>
+       */
+      public Builder setRoom(message.RoomMsgProto.RoomMsg value) {
+        copyOnWrite();
+        instance.setRoom(value);
+        return this;
+        }
+      /**
+       * <code>optional .message.RoomMsg room = 1;</code>
+       */
+      public Builder setRoom(
+          message.RoomMsgProto.RoomMsg.Builder builderForValue) {
+        copyOnWrite();
+        instance.setRoom(builderForValue);
+        return this;
+      }
+      /**
+       * <code>optional .message.RoomMsg room = 1;</code>
+       */
+      public Builder mergeRoom(message.RoomMsgProto.RoomMsg value) {
+        copyOnWrite();
+        instance.mergeRoom(value);
+        return this;
+      }
+      /**
+       * <code>optional .message.RoomMsg room = 1;</code>
+       */
+      public Builder clearRoom() {  copyOnWrite();
+        instance.clearRoom();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:message.CreatRoomRsp)
+    }
+    protected final Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        Object arg0, Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new message.RoomMsgProto.CreatRoomRsp();
+        }
+        case IS_INITIALIZED: {
+          return DEFAULT_INSTANCE;
+        }
+        case MAKE_IMMUTABLE: {
+          return null;
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case VISIT: {
+          Visitor visitor = (Visitor) arg0;
+          message.RoomMsgProto.CreatRoomRsp other = (message.RoomMsgProto.CreatRoomRsp) arg1;
+          room_ = visitor.visitMessage(room_, other.room_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+              .INSTANCE) {
+            bitField0_ |= other.bitField0_;
+          }
+          return this;
+        }
+        case MERGE_FROM_STREAM: {
+          com.google.protobuf.CodedInputStream input =
+              (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!parseUnknownField(tag, input)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 10: {
+                  message.RoomMsgProto.RoomMsg.Builder subBuilder = null;
+                  if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                    subBuilder = room_.toBuilder();
+                  }
+                  room_ = input.readMessage(message.RoomMsgProto.RoomMsg.parser(), extensionRegistry);
+                  if (subBuilder != null) {
+                    subBuilder.mergeFrom(room_);
+                    room_ = subBuilder.buildPartial();
+                  }
+                  bitField0_ |= 0x00000001;
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(
+                    e.getMessage()).setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          if (PARSER == null) {    synchronized (message.RoomMsgProto.CreatRoomRsp.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              }
+            }
+          }
+          return PARSER;
+        }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:message.CreatRoomRsp)
+    private static final message.RoomMsgProto.CreatRoomRsp DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new CreatRoomRsp();
+      DEFAULT_INSTANCE.makeImmutable();
+    }
+
+    public static message.RoomMsgProto.CreatRoomRsp getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<CreatRoomRsp> PARSER;
+
+    public static com.google.protobuf.Parser<CreatRoomRsp> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
 
   static {
   }
