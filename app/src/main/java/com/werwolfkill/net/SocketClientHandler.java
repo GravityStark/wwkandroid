@@ -21,10 +21,10 @@ public class SocketClientHandler extends ChannelInboundHandlerAdapter {
             int actionCode = pbMessage.getCode();
             switch(actionCode){
                 case ClientActionProto.ClientAction.ACTION_LOGIN_VALUE:
-                    NetManager.getInstance().loginRsp(pbMessage.getData());
+                    NetManager.getInstance().loginRsp(pbMessage.getData(),actionCode);
                     break;
                 case ClientActionProto.ClientAction.ACTION_CREAT_ROOM_VALUE:
-                    NetManager.getInstance().creatRoomRsp(pbMessage.getData());
+                    NetManager.getInstance().creatRoomRsp(pbMessage.getData(),actionCode);
                     break;
             }
         }else if(pbMessage.hasPushCode()){

@@ -2,22 +2,19 @@ package com.werwolfkill.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.werwolfkill.MainActivity;
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.werwolfkill.R;
+import com.werwolfkill.activity.handler.ActMsgHandler;
 import com.werwolfkill.net.NetManager;
 import com.werwolfkill.service.NetService;
 import com.werwolfkill.service.NetServiceConnection;
-
-import java.lang.ref.WeakReference;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,7 +23,7 @@ import message.AccountProto;
 
 import static message.AccountProto.LOGIN_TYPE;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
     @BindView(R.id.tv_an)
     TextView tvAn;
     @BindView(R.id.et_an)
@@ -44,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.register)
     Button register;
     private NetServiceConnection netServiceConnection = new NetServiceConnection();
-    private final MyHandler mHandler = new MyHandler(this);
+    private final ActMsgHandler mHandler = new ActMsgHandler(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,39 +80,23 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public static class MyHandler extends Handler {
-
-        //对Activity的弱引用
-        private final WeakReference<LoginActivity> mActivity;
-
-        public MyHandler(LoginActivity activity) {
-            mActivity = new WeakReference<LoginActivity>(activity);
-        }
-
-        @Override
-        public void handleMessage(Message msg) {
-            LoginActivity activity = mActivity.get();
-            if (activity == null) {
-                super.handleMessage(msg);
-                return;
-            }
-
-            switch (msg.what) {
-                case AccountProto.LOGIN_RESULT_TYPE.CREATE_NAME_EXIST_VALUE:
-                    Toast.makeText(mActivity.get(), "账号名已存在", Toast.LENGTH_LONG).show();
-                    break;
-                case AccountProto.LOGIN_RESULT_TYPE.NO_ACCOUNT_VALUE:
-                    Toast.makeText(mActivity.get(), "账号不存在", Toast.LENGTH_LONG).show();
-                    break;
-                case AccountProto.LOGIN_RESULT_TYPE.PWD_ERROR_VALUE:
-                    Toast.makeText(mActivity.get(), "密码错误", Toast.LENGTH_LONG).show();
-                    break;
-                case AccountProto.LOGIN_RESULT_TYPE.SUCCESS_VALUE:
-                    Intent intent = new Intent(mActivity.get(), MainActivity.class);
-                    mActivity.get().startActivity(intent);
-                    break;
-            }
-
+    @Override
+    public void handleMessage(Message msg) throws InvalidProtocolBufferException {
+        AccountProto.LoginRsp rsp = AccountProto.LoginRsp.parseFrom(msg.getData().getByteArray("rsp"));
+        switch (rsp.getResult()) {
+            case AccountProto.LOGIN_RESULT_TYPE.CREATE_NAME_EXIST_VALUE:
+                Toast.makeText(this, "账号名已存在", Toast.LENGTH_LONG).show();
+                break;
+            case AccountProto.LOGIN_RESULT_TYPE.NO_ACCOUNT_VALUE:
+                Toast.makeText(this, "账号不存在", Toast.LENGTH_LONG).show();
+                break;
+            case AccountProto.LOGIN_RESULT_TYPE.PWD_ERROR_VALUE:
+                Toast.makeText(this, "密码错误", Toast.LENGTH_LONG).show();
+                break;
+            case AccountProto.LOGIN_RESULT_TYPE.SUCCESS_VALUE:
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 }
