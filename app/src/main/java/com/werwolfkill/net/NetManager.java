@@ -5,9 +5,9 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.google.protobuf.ByteString;
+import com.werwolfkill.data.DataManager;
 
 import message.AccountProto;
-import message.PlayerProto;
 import message.RoomMsgProto;
 import message.core.ClientActionProto;
 import message.core.PBMessageProto;
@@ -20,7 +20,6 @@ public class NetManager {
 
     private static SocketClient socketClient = null;
     private Handler mHandler;//当前界面
-    private PlayerProto.PlayerMsg player;
     private NetManager() {
     }
 
@@ -60,6 +59,32 @@ public class NetManager {
         socketClient.send(msg);
     }
 
+    public void setmHandler(Handler mHandler) {
+        this.mHandler = mHandler;
+    }
+
+    /**
+     * 发送系统数据到主界面
+     *
+     * rspOrpush  :  0 -->push      ;1 --->rsp
+     */
+    public void sendMsgToActivity(int rspOrpush,ByteString msg,int actionCode){
+        Message message = Message.obtain();
+        message.what = actionCode;
+        message.arg1 = rspOrpush;
+        Bundle bundle = new Bundle();
+        bundle.putByteArray("data",msg.toByteArray());
+        message.setData(bundle);
+        mHandler.sendMessage(message);
+
+    }
+
+    //********************************请求响应处理******************************************************
+
+
+    /**
+     * 心跳包
+     */
     private void heartBeat() {
         new Thread(new Runnable() {
             @Override
@@ -78,89 +103,74 @@ public class NetManager {
         }).start();
     }
 
-    public void setmHandler(Handler mHandler) {
-        this.mHandler = mHandler;
-    }
-
     /**
-     * 发送系统数据到主界面
+     *登录
+     * @param type
+     * @param accountName
+     * @param pwd
      */
-    public void sendSystemMsgToMainActivity(String content,int result){
-        StringBuilder senderBuilder = new StringBuilder();
-        senderBuilder.append("系统消息-->");
-
-        StringBuilder contentBuilder = new StringBuilder(content);
-
-
-        Message message = Message.obtain();
-        message.what = result;
-        Bundle bundle = new Bundle();
-        bundle.putString("sender",senderBuilder.toString());
-        bundle.putString("content",contentBuilder.toString());
-        message.setData(bundle);
-        mHandler.sendMessage(message);
-
-    }
-    /**
-     * 发送玩家数据到主界面
-     */
-    public void sendPlayerMsgToMainActivity(String sender,String content){
-        StringBuilder senderBuilder = new StringBuilder(sender);
-        senderBuilder.append(" 说:");
-
-        StringBuilder contentBuilder = new StringBuilder(content);
-
-
-        Message message = Message.obtain();
-        Bundle bundle = new Bundle();
-        bundle.putString("sender",senderBuilder.toString());
-        bundle.putString("content",contentBuilder.toString());
-        message.setData(bundle);
-        mHandler.sendMessage(message);
-    }
-
-    /**
-     * 发送登录界面
-     */
-    public void sendLoginActivity(int result){
-        Message message = Message.obtain();
-        message.what = result;
-        mHandler.sendMessage(message);
-    }
-
     public void loginReq(int type,String accountName ,String pwd){
-        AccountProto.LoginReq.Builder builder = AccountProto.LoginReq.newBuilder();
-        builder.setType(type);
-        builder.setAccountName(accountName);
-        builder.setPassword(pwd);
-        sendMsgToServer(builder.build().toByteString(), ClientActionProto.ClientAction.ACTION_LOGIN_VALUE);
-    }
-    public void loginRsp(ByteString msg) throws  Exception{
-        AccountProto.LoginRsp rsp = AccountProto.LoginRsp.parseFrom(msg);
-        player = rsp.getPlayer();
-
-        sendLoginActivity(rsp.getResult());
-    }
-    public void creatRoomReq(){
         PBMessageProto.PBMessage.Builder builder = PBMessageProto.PBMessage.newBuilder();
-        RoomMsgProto.CreatRoomReq.Builder builder1 = RoomMsgProto.CreatRoomReq.newBuilder();
-        builder.setPlayerId(player.getId());
-        builder.setCode(ClientActionProto.ClientAction.ACTION_CREAT_ROOM_VALUE);
-        builder.setData(builder1.build().toByteString());
+        AccountProto.LoginReq.Builder rebuilder = AccountProto.LoginReq.newBuilder();
+        rebuilder.setType(type);
+        rebuilder.setAccountName(accountName);
+        rebuilder.setPassword(pwd);
+        builder.setCode(ClientActionProto.ClientAction.ACTION_LOGIN_VALUE);
+        builder.setData(rebuilder.build().toByteString());
         sendMessage(builder);
     }
-    public void creatRoomRsp(ByteString msg) throws  Exception{
-        RoomMsgProto.CreatRoomRsp rsp = RoomMsgProto.CreatRoomRsp.parseFrom(msg);
-        RoomMsgProto.RoomMsg room = rsp.getRoom();
-        //
 
-        sendSystemMsgToMainActivity(player.getName()+"加入游戏",1);
-
-    }
-    public void sendMsgToServer(ByteString msg,int actionCode){
+    /**
+     * 创建房间
+     */
+    public void creatRoomReq(){
         PBMessageProto.PBMessage.Builder builder = PBMessageProto.PBMessage.newBuilder();
-        builder.setCode(actionCode);
-        builder.setData(msg);
+        RoomMsgProto.CreatRoomReq.Builder reqBuilder = RoomMsgProto.CreatRoomReq.newBuilder();
+        builder.setPlayerId(DataManager.getInstance().getPlayer().getId());
+        builder.setCode(ClientActionProto.ClientAction.ACTION_CREAT_ROOM_VALUE);
+        builder.setData(reqBuilder.build().toByteString());
+        sendMessage(builder);
+    }
+
+    /**
+     * 加入房间
+     */
+    public void joinRoomReq(){
+        PBMessageProto.PBMessage.Builder builder = PBMessageProto.PBMessage.newBuilder();
+        RoomMsgProto.JoinRoomReq.Builder reqBuilder = RoomMsgProto.JoinRoomReq.newBuilder();
+        builder.setPlayerId(DataManager.getInstance().getPlayer().getId());
+        builder.setCode(ClientActionProto.ClientAction.ACTION_JOIN_ROOM_VALUE);
+        builder.setData(reqBuilder.build().toByteString());
+        sendMessage(builder);
+    }
+
+    /**
+     * 退出房间
+     * @param id
+     */
+    public void quitRoomReq(String id){
+        PBMessageProto.PBMessage.Builder builder = PBMessageProto.PBMessage.newBuilder();
+        RoomMsgProto.QuitRoomReq.Builder reqBuilder = RoomMsgProto.QuitRoomReq.newBuilder();
+        reqBuilder.setId(id);
+
+        builder.setPlayerId(DataManager.getInstance().getPlayer().getId());
+        builder.setCode(ClientActionProto.ClientAction.ACTION_QUIT_ROOM_VALUE);
+        builder.setData(reqBuilder.build().toByteString());
+        sendMessage(builder);
+    }
+
+    /**
+     * 发送消息
+     * @param content
+     */
+    public void sendTxtMsgToRoomReq(String content){
+        PBMessageProto.PBMessage.Builder builder = PBMessageProto.PBMessage.newBuilder();
+        RoomMsgProto.SendTxtMsgReq.Builder reqBuilder = RoomMsgProto.SendTxtMsgReq.newBuilder();
+        reqBuilder.setId(DataManager.getInstance().getRoom().getId());
+        reqBuilder.setContent(content);
+        builder.setPlayerId(DataManager.getInstance().getPlayer().getId());
+        builder.setCode(ClientActionProto.ClientAction.ACTION_SEND_TXT_MSG_VALUE);
+        builder.setData(reqBuilder.build().toByteString());
         sendMessage(builder);
     }
 }

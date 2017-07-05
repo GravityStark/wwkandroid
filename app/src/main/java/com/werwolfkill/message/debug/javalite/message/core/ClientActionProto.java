@@ -35,12 +35,36 @@ public final class ClientActionProto {
     ACTION_LOGIN(2),
     /**
      * <pre>
-     *登录;
+     *创建房间;
      * </pre>
      *
      * <code>ACTION_CREAT_ROOM = 3;</code>
      */
     ACTION_CREAT_ROOM(3),
+    /**
+     * <pre>
+     *进入房间;
+     * </pre>
+     *
+     * <code>ACTION_JOIN_ROOM = 4;</code>
+     */
+    ACTION_JOIN_ROOM(4),
+    /**
+     * <pre>
+     *离开房间
+     * </pre>
+     *
+     * <code>ACTION_QUIT_ROOM = 5;</code>
+     */
+    ACTION_QUIT_ROOM(5),
+    /**
+     * <pre>
+     *发送文本消息
+     * </pre>
+     *
+     * <code>ACTION_SEND_TXT_MSG = 6;</code>
+     */
+    ACTION_SEND_TXT_MSG(6),
     ;
 
     /**
@@ -61,12 +85,36 @@ public final class ClientActionProto {
     public static final int ACTION_LOGIN_VALUE = 2;
     /**
      * <pre>
-     *登录;
+     *创建房间;
      * </pre>
      *
      * <code>ACTION_CREAT_ROOM = 3;</code>
      */
     public static final int ACTION_CREAT_ROOM_VALUE = 3;
+    /**
+     * <pre>
+     *进入房间;
+     * </pre>
+     *
+     * <code>ACTION_JOIN_ROOM = 4;</code>
+     */
+    public static final int ACTION_JOIN_ROOM_VALUE = 4;
+    /**
+     * <pre>
+     *离开房间
+     * </pre>
+     *
+     * <code>ACTION_QUIT_ROOM = 5;</code>
+     */
+    public static final int ACTION_QUIT_ROOM_VALUE = 5;
+    /**
+     * <pre>
+     *发送文本消息
+     * </pre>
+     *
+     * <code>ACTION_SEND_TXT_MSG = 6;</code>
+     */
+    public static final int ACTION_SEND_TXT_MSG_VALUE = 6;
 
 
     public final int getNumber() {
@@ -86,6 +134,9 @@ public final class ClientActionProto {
         case 1: return ACTION_HEARTBEAT;
         case 2: return ACTION_LOGIN;
         case 3: return ACTION_CREAT_ROOM;
+        case 4: return ACTION_JOIN_ROOM;
+        case 5: return ACTION_QUIT_ROOM;
+        case 6: return ACTION_SEND_TXT_MSG;
         default: return null;
       }
     }
