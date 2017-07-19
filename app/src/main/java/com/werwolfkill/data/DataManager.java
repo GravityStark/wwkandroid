@@ -62,11 +62,13 @@ public class DataManager {
     }
 
     public int getRimgId(int imgid) throws Exception {
-        Field field = R.drawable.class.getDeclaredField("hd_"+DataManager.getInstance().getPlayer().getImgId());
-        if(field == null){
-            return 1;
-        }else{
-            return field.getInt(null);
+        Field field = null;
+        try{
+             field = R.drawable.class.getDeclaredField("hd_"+imgid);
+        }catch (Exception e){
+            imgid = 1;
         }
+        field = R.drawable.class.getDeclaredField("hd_"+imgid);
+        return field.getInt(null);
     }
 }

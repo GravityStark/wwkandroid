@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.werwolfkill.R;
 import com.werwolfkill.activity.handler.ActMsgHandler;
+import com.werwolfkill.data.DataManager;
 import com.werwolfkill.net.NetManager;
 import com.werwolfkill.service.NetService;
 import com.werwolfkill.service.NetServiceConnection;
@@ -82,7 +83,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void handleMessage(Message msg) throws InvalidProtocolBufferException {
-        AccountProto.LoginRsp rsp = AccountProto.LoginRsp.parseFrom(msg.getData().getByteArray("rsp"));
+        AccountProto.LoginRsp rsp = AccountProto.LoginRsp.parseFrom(msg.getData().getByteArray("data"));
         switch (rsp.getResult()) {
             case AccountProto.LOGIN_RESULT_TYPE.CREATE_NAME_EXIST_VALUE:
                 Toast.makeText(this, "账号名已存在", Toast.LENGTH_LONG).show();
@@ -94,7 +95,8 @@ public class LoginActivity extends BaseActivity {
                 Toast.makeText(this, "密码错误", Toast.LENGTH_LONG).show();
                 break;
             case AccountProto.LOGIN_RESULT_TYPE.SUCCESS_VALUE:
-                Intent intent = new Intent(this, MainActivity.class);
+                DataManager.getInstance().setPlayer(rsp.getPlayer());
+                Intent intent = new Intent(this, GameHallActivity.class);
                 startActivity(intent);
                 break;
         }

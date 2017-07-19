@@ -65,12 +65,15 @@ public class NetManager {
 
     /**
      * 发送系统数据到主界面
+     *
+     * rspOrpush  :  0 -->push      ;1 --->rsp
      */
-    public void sendMsgToActivity(ByteString msg,int actionCode){
+    public void sendMsgToActivity(int rspOrpush,ByteString msg,int actionCode){
         Message message = Message.obtain();
         message.what = actionCode;
+        message.arg1 = rspOrpush;
         Bundle bundle = new Bundle();
-        bundle.putByteArray("rsp",msg.toByteArray());
+        bundle.putByteArray("data",msg.toByteArray());
         message.setData(bundle);
         mHandler.sendMessage(message);
 
@@ -78,17 +81,6 @@ public class NetManager {
 
     //********************************请求响应处理******************************************************
 
-    /**
-     * 发送消息到服务器
-     * @param msg
-     * @param actionCode
-     */
-    public void sendMsgToServer(ByteString msg,int actionCode){
-        PBMessageProto.PBMessage.Builder builder = PBMessageProto.PBMessage.newBuilder();
-        builder.setCode(actionCode);
-        builder.setData(msg);
-        sendMessage(builder);
-    }
 
     /**
      * 心跳包
@@ -118,19 +110,14 @@ public class NetManager {
      * @param pwd
      */
     public void loginReq(int type,String accountName ,String pwd){
-        AccountProto.LoginReq.Builder builder = AccountProto.LoginReq.newBuilder();
-        builder.setType(type);
-        builder.setAccountName(accountName);
-        builder.setPassword(pwd);
-        sendMsgToServer(builder.build().toByteString(), ClientActionProto.ClientAction.ACTION_LOGIN_VALUE);
-    }
-    public void loginRsp(ByteString msg,int actionCode) throws  Exception{
-        AccountProto.LoginRsp rsp = AccountProto.LoginRsp.parseFrom(msg);
-        //登录成功
-        if(rsp.getResult() == AccountProto.LOGIN_RESULT_TYPE.SUCCESS_VALUE){
-            DataManager.getInstance().setPlayer(rsp.getPlayer());
-        }
-        sendMsgToActivity(msg,actionCode);
+        PBMessageProto.PBMessage.Builder builder = PBMessageProto.PBMessage.newBuilder();
+        AccountProto.LoginReq.Builder rebuilder = AccountProto.LoginReq.newBuilder();
+        rebuilder.setType(type);
+        rebuilder.setAccountName(accountName);
+        rebuilder.setPassword(pwd);
+        builder.setCode(ClientActionProto.ClientAction.ACTION_LOGIN_VALUE);
+        builder.setData(rebuilder.build().toByteString());
+        sendMessage(builder);
     }
 
     /**
@@ -138,16 +125,52 @@ public class NetManager {
      */
     public void creatRoomReq(){
         PBMessageProto.PBMessage.Builder builder = PBMessageProto.PBMessage.newBuilder();
-        RoomMsgProto.CreatRoomReq.Builder builder1 = RoomMsgProto.CreatRoomReq.newBuilder();
+        RoomMsgProto.CreatRoomReq.Builder reqBuilder = RoomMsgProto.CreatRoomReq.newBuilder();
         builder.setPlayerId(DataManager.getInstance().getPlayer().getId());
         builder.setCode(ClientActionProto.ClientAction.ACTION_CREAT_ROOM_VALUE);
-        builder.setData(builder1.build().toByteString());
+        builder.setData(reqBuilder.build().toByteString());
         sendMessage(builder);
     }
-    public void creatRoomRsp(ByteString msg,int actionCode) throws  Exception{
-        //
-        sendMsgToActivity(msg,actionCode);
+
+    /**
+     * 加入房间
+     */
+    public void joinRoomReq(){
+        PBMessageProto.PBMessage.Builder builder = PBMessageProto.PBMessage.newBuilder();
+        RoomMsgProto.JoinRoomReq.Builder reqBuilder = RoomMsgProto.JoinRoomReq.newBuilder();
+        builder.setPlayerId(DataManager.getInstance().getPlayer().getId());
+        builder.setCode(ClientActionProto.ClientAction.ACTION_JOIN_ROOM_VALUE);
+        builder.setData(reqBuilder.build().toByteString());
+        sendMessage(builder);
     }
 
+    /**
+     * 退出房间
+     * @param id
+     */
+    public void quitRoomReq(String id){
+        PBMessageProto.PBMessage.Builder builder = PBMessageProto.PBMessage.newBuilder();
+        RoomMsgProto.QuitRoomReq.Builder reqBuilder = RoomMsgProto.QuitRoomReq.newBuilder();
+        reqBuilder.setId(id);
 
+        builder.setPlayerId(DataManager.getInstance().getPlayer().getId());
+        builder.setCode(ClientActionProto.ClientAction.ACTION_QUIT_ROOM_VALUE);
+        builder.setData(reqBuilder.build().toByteString());
+        sendMessage(builder);
+    }
+
+    /**
+     * 发送消息
+     * @param content
+     */
+    public void sendTxtMsgToRoomReq(String content){
+        PBMessageProto.PBMessage.Builder builder = PBMessageProto.PBMessage.newBuilder();
+        RoomMsgProto.SendTxtMsgReq.Builder reqBuilder = RoomMsgProto.SendTxtMsgReq.newBuilder();
+        reqBuilder.setId(DataManager.getInstance().getRoom().getId());
+        reqBuilder.setContent(content);
+        builder.setPlayerId(DataManager.getInstance().getPlayer().getId());
+        builder.setCode(ClientActionProto.ClientAction.ACTION_SEND_TXT_MSG_VALUE);
+        builder.setData(reqBuilder.build().toByteString());
+        sendMessage(builder);
+    }
 }

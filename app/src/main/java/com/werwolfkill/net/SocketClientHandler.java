@@ -3,7 +3,6 @@ package com.werwolfkill.net;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import message.core.ClientActionProto;
 import message.core.PBMessageProto;
 
 /**
@@ -18,17 +17,9 @@ public class SocketClientHandler extends ChannelInboundHandlerAdapter {
         //解析消息
         PBMessageProto.PBMessage pbMessage = (PBMessageProto.PBMessage)msg;
         if(pbMessage.hasCode()){
-            int actionCode = pbMessage.getCode();
-            switch(actionCode){
-                case ClientActionProto.ClientAction.ACTION_LOGIN_VALUE:
-                    NetManager.getInstance().loginRsp(pbMessage.getData(),actionCode);
-                    break;
-                case ClientActionProto.ClientAction.ACTION_CREAT_ROOM_VALUE:
-                    NetManager.getInstance().creatRoomRsp(pbMessage.getData(),actionCode);
-                    break;
-            }
+            NetManager.getInstance().sendMsgToActivity(1,pbMessage.getData(),pbMessage.getCode());
         }else if(pbMessage.hasPushCode()){
-
+            NetManager.getInstance().sendMsgToActivity(0,pbMessage.getData(),pbMessage.getPushCode());
         }
     }
 }

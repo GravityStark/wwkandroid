@@ -6,35 +6,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:weightSum="1"
     tools:context="com.werwolfkill.activity.MainActivity">
 
-    <LinearLayout
-        android:id="@+id/main_top"
-        android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:orientation="horizontal"
-        android:weightSum="1">
+    <!--<LinearLayout-->
+        <!--android:id="@+id/main_top"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_weight="0.1"-->
+        <!--android:weightSum="1">-->
 
-        <ImageView
-            android:id="@+id/selfimg"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.2"
-            app:srcCompat="@mipmap/ic_launcher" />
+        <!--<ImageView-->
+            <!--android:id="@+id/selfimg"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="0.2"-->
+            <!--app:srcCompat="@mipmap/ic_launcher" />-->
 
-        <TextView
-            android:id="@+id/selfname"
+        <!--<TextView-->
+            <!--android:id="@+id/selfname"-->
 
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.2" />
-    </LinearLayout>
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="0.2" />-->
+    <!--</LinearLayout>-->
 
     <LinearLayout
         android:id="@+id/main_center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:layout_weight="0.7"
         android:weightSum="1">
 
         <LinearLayout
@@ -53,14 +56,15 @@
                 android:layout_weight="2.5"
                 android:background="@drawable/shape_gray_square_bg"
                 android:padding="1dp"
-                app:srcCompat="@android:drawable/alert_dark_frame" />
+                android:src="@drawable/plder"/>
 
             <TextView
                 android:id="@+id/tv1"
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
                 android:layout_weight="0.5"
-                android:gravity="center_horizontal" />
+                android:gravity="center_horizontal"
+                android:text="1"/>
 
             <ImageView
                 android:id="@+id/p2"
@@ -70,7 +74,7 @@
                 android:layout_weight="2.5"
                 android:background="@drawable/shape_gray_square_bg"
                 android:padding="1dp"
-                app:srcCompat="@android:drawable/alert_dark_frame" />
+                android:src="@drawable/plder"/>
 
             <TextView
                 android:id="@+id/tv2"
@@ -79,7 +83,8 @@
                 android:layout_height="10dp"
                 android:layout_weight="0.5"
                 android:paddingLeft="4dp"
-                android:paddingTop="4dp" />
+                android:paddingTop="4dp"
+                android:text="2"/>
 
             <ImageView
                 android:id="@+id/p3"
@@ -89,7 +94,7 @@
                 android:layout_weight="2.5"
                 android:background="@drawable/shape_gray_square_bg"
                 android:padding="1dp"
-                app:srcCompat="@android:drawable/alert_dark_frame" />
+                android:src="@drawable/plder" />
 
             <TextView
                 android:id="@+id/tv3"
@@ -98,7 +103,8 @@
                 android:layout_height="10dp"
                 android:layout_weight="0.5"
                 android:paddingLeft="4dp"
-                android:paddingTop="4dp" />
+                android:paddingTop="4dp"
+                android:text="3"/>
 
             <ImageView
                 android:id="@+id/p4"
@@ -108,7 +114,7 @@
                 android:layout_weight="2.5"
                 android:background="@drawable/shape_gray_square_bg"
                 android:padding="1dp"
-                app:srcCompat="@android:drawable/alert_dark_frame" />
+                android:src="@drawable/plder" />
 
             <TextView
                 android:id="@+id/tv4"
@@ -117,7 +123,8 @@
                 android:layout_height="10dp"
                 android:layout_weight="0.5"
                 android:paddingLeft="4dp"
-                android:paddingTop="4dp" />
+                android:paddingTop="4dp"
+                android:text="4"/>
 
             <ImageView
                 android:id="@+id/p5"
@@ -127,16 +134,17 @@
                 android:layout_weight="2.5"
                 android:background="@drawable/shape_gray_square_bg"
                 android:padding="1dp"
-                app:srcCompat="@android:drawable/alert_dark_frame" />
+                android:src="@drawable/plder" />
 
             <TextView
                 android:id="@+id/tv5"
                 android:gravity="center_horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="10dp"
                 android:layout_weight="0.5"
                 android:paddingLeft="4dp"
-                android:paddingTop="4dp" />
+                android:paddingTop="4dp"
+                android:text="5"/>
         </LinearLayout>
 
 
@@ -165,7 +173,7 @@
                 android:layout_weight="2.5"
                 android:background="@drawable/shape_gray_square_bg"
                 android:padding="1dp"
-                app:srcCompat="@android:drawable/alert_dark_frame" />
+                android:src="@drawable/plder"/>
 
             <TextView
                 android:id="@+id/tv6"
@@ -174,7 +182,8 @@
                 android:layout_height="10dp"
                 android:layout_weight="0.5"
                 android:paddingLeft="4dp"
-                android:paddingTop="4dp" />
+                android:paddingTop="4dp"
+                android:text="6"/>
 
             <ImageView
                 android:id="@+id/p7"
@@ -184,7 +193,7 @@
                 android:layout_weight="2.5"
                 android:background="@drawable/shape_gray_square_bg"
                 android:padding="1dp"
-                app:srcCompat="@android:drawable/alert_dark_frame" />
+                android:src="@drawable/plder"/>
 
             <TextView
                 android:id="@+id/tv7"
@@ -193,7 +202,8 @@
                 android:layout_height="10dp"
                 android:layout_weight="0.5"
                 android:paddingLeft="4dp"
-                android:paddingTop="4dp" />
+                android:paddingTop="4dp"
+                android:text="7"/>
 
             <ImageView
                 android:id="@+id/p8"
@@ -203,7 +213,7 @@
                 android:layout_weight="2.5"
                 android:background="@drawable/shape_gray_square_bg"
                 android:padding="1dp"
-                app:srcCompat="@android:drawable/alert_dark_frame" />
+                android:src="@drawable/plder" />
 
             <TextView
                 android:id="@+id/tv8"
@@ -212,7 +222,8 @@
                 android:layout_height="10dp"
                 android:layout_weight="0.5"
                 android:paddingLeft="4dp"
-                android:paddingTop="4dp" />
+                android:paddingTop="4dp"
+                android:text="8"/>
 
             <ImageView
                 android:id="@+id/p9"
@@ -222,7 +233,7 @@
                 android:layout_weight="2.5"
                 android:background="@drawable/shape_gray_square_bg"
                 android:padding="1dp"
-                app:srcCompat="@android:drawable/alert_dark_frame" />
+                android:src="@drawable/plder" />
 
             <TextView
                 android:id="@+id/tv9"
@@ -231,7 +242,8 @@
                 android:layout_height="10dp"
                 android:layout_weight="0.5"
                 android:paddingLeft="4dp"
-                android:paddingTop="4dp" />
+                android:paddingTop="4dp"
+                android:text="9"/>
 
             <ImageView
                 android:id="@+id/p10"
@@ -241,16 +253,27 @@
                 android:layout_weight="2.5"
                 android:background="@drawable/shape_gray_square_bg"
                 android:padding="1dp"
-                app:srcCompat="@android:drawable/alert_dark_frame" />
+                android:src="@drawable/plder"/>
 
             <TextView
                 android:id="@+id/tv10"
                 android:gravity="center_horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="10dp"
                 android:layout_weight="0.5"
                 android:paddingLeft="4dp"
-                android:paddingTop="4dp" />
+                android:paddingTop="4dp"
+                android:text="10"/>
         </LinearLayout>
+
     </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:layout_weight="0.3"
+        android:id="@+id/editText2" />
 </LinearLayout>
