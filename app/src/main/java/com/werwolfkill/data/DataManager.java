@@ -61,10 +61,10 @@ public class DataManager {
         this.room = room;
     }
 
-    public int getRimgId(int imgid) throws Exception {
+    public int getRimgId(int imgid) throws  Exception{
         Field field = null;
         try{
-             field = R.drawable.class.getDeclaredField("hd_"+imgid);
+            field = R.drawable.class.getDeclaredField("hd_"+imgid);
         }catch (Exception e){
             imgid = 1;
         }

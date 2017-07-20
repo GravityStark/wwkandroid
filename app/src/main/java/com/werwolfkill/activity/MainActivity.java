@@ -3,6 +3,7 @@ package com.werwolfkill.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
+import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -81,10 +82,8 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //去掉actionBar
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        getSupportActionBar().hide();
 
         initListView();
 
@@ -96,26 +95,31 @@ public class MainActivity extends BaseActivity {
 
     /**
      * 处理游戏大厅数据
+     *
      * @param savedInstanceState
      */
     private void handleHallActivity(Bundle savedInstanceState) {
         try {
-            if(savedInstanceState.getInt("code") == ClientActionProto.ClientAction.ACTION_CREAT_ROOM_VALUE){
+            Toolbar toolbar = (Toolbar) findViewById(R.id.main_tb);
+            setSupportActionBar(toolbar);
+            toolbar.setLogo(DataManager.getInstance().getRimgId(DataManager.getInstance().getPlayer().getImgId()));
+            setTitle(DataManager.getInstance().getPlayer().getName());
+            if (savedInstanceState.getInt("code") == ClientActionProto.ClientAction.ACTION_CREAT_ROOM_VALUE) {
                 updateGameMsg("系统消息:", DataManager.getInstance().getPlayer().getName() + "  加入游戏。");
                 p1.setImageResource(DataManager.getInstance().getRimgId(DataManager.getInstance().getPlayer().getImgId()));
                 tv1.setText(DataManager.getInstance().getPlayer().getName());
-            }else if(savedInstanceState.getInt("code") == ClientActionProto.ClientAction.ACTION_JOIN_ROOM_VALUE){
+            } else if (savedInstanceState.getInt("code") == ClientActionProto.ClientAction.ACTION_JOIN_ROOM_VALUE) {
                 updateGameMsg("系统消息:", DataManager.getInstance().getPlayer().getName() + "  加入游戏。");
                 List<RoomMsgProto.JoinerInfoMsg> joiners = DataManager.getInstance().getRoom().getJoinerInfoMsgList();
-                for (int i = 0;i < joiners.size();i++){
-                    RoomMsgProto.JoinerInfoMsg joiner  = joiners.get(i);
+                for (int i = 0; i < joiners.size(); i++) {
+                    RoomMsgProto.JoinerInfoMsg joiner = joiners.get(i);
 
-                    Field imField = this.getClass().getDeclaredField("p"+(i+1));
-                    ImageView imageView = (ImageView)imField.get(this);
+                    Field imField = this.getClass().getDeclaredField("p" + (i + 1));
+                    ImageView imageView = (ImageView) imField.get(this);
                     imageView.setImageResource(DataManager.getInstance().getRimgId(joiner.getJoiner().getPlayerMsg().getImgId()));
 
-                    Field tvField = this.getClass().getDeclaredField("tv"+(i+1));
-                    TextView textView = (TextView)tvField.get(this);
+                    Field tvField = this.getClass().getDeclaredField("tv" + (i + 1));
+                    TextView textView = (TextView) tvField.get(this);
                     textView.setText(joiner.getJoiner().getPlayerMsg().getName());
                 }
 
@@ -131,7 +135,7 @@ public class MainActivity extends BaseActivity {
         NetManager.getInstance().quitRoomReq(DataManager.getInstance().getRoom().getId());
 
         //返回游戏大厅界面
-        Intent intent = new Intent(this,GameHallActivity.class);
+        Intent intent = new Intent(this, GameHallActivity.class);
         startActivity(intent);
     }
 
@@ -162,73 +166,75 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void handleMessage(Message msg) throws Exception {
-        if(msg.arg1 == 0){
+        if (msg.arg1 == 0) {
             handlePush(msg);
-        }else if(msg.arg1 == 1){
+        } else if (msg.arg1 == 1) {
             handleRsp(msg);
         }
     }
 
     /**
      * 处理响应
+     *
      * @param msg
      * @throws Exception
      */
     private void handleRsp(Message msg) throws Exception {
         if (msg.what == ClientActionProto.ClientAction.ACTION_CREAT_ROOM_VALUE) {//创建房间
-        }else if(msg.what == ClientActionProto.ClientAction.ACTION_JOIN_ROOM_VALUE){//加入房间
-        }else if(msg.what == ClientActionProto.ClientAction.ACTION_QUIT_ROOM_VALUE){//离开房间
-        }else if(msg.what == ClientActionProto.ClientAction.ACTION_SEND_TXT_MSG_VALUE){//发送文本消息
+        } else if (msg.what == ClientActionProto.ClientAction.ACTION_JOIN_ROOM_VALUE) {//加入房间
+        } else if (msg.what == ClientActionProto.ClientAction.ACTION_QUIT_ROOM_VALUE) {//离开房间
+        } else if (msg.what == ClientActionProto.ClientAction.ACTION_SEND_TXT_MSG_VALUE) {//发送文本消息
         }
     }
 
     /**
      * 处理推送
+     *
      * @param msg
      * @throws Exception
      */
     private void handlePush(Message msg) throws Exception {
-        if(msg.what == PushMsgProto.PushType.PUSH_PLAYER_VALUE){//玩家信息
+        if (msg.what == PushMsgProto.PushType.PUSH_PLAYER_VALUE) {//玩家信息
             PlayerProto.PlayerMsg playerMsg = PlayerProto.PlayerMsg.parseFrom(msg.getData().getByteArray("data"));
             DataManager.getInstance().setPlayer(playerMsg);
-        }else if(msg.what == PushMsgProto.PushType.PUSH_JOIN_GAME_VALUE){//加入游戏
+        } else if (msg.what == PushMsgProto.PushType.PUSH_JOIN_GAME_VALUE) {//加入游戏
 
             RoomMsgProto.JoinerInfoMsg joiner = RoomMsgProto.JoinerInfoMsg.parseFrom(msg.getData().getByteArray("data"));
 
-            Field imField = this.getClass().getDeclaredField("p"+joiner.getLocation());
-            ImageView imageView = (ImageView)imField.get(this);
+            Field imField = this.getClass().getDeclaredField("p" + joiner.getLocation());
+            ImageView imageView = (ImageView) imField.get(this);
             imageView.setImageResource(DataManager.getInstance().getRimgId(joiner.getJoiner().getPlayerMsg().getImgId()));
 
-            Field tvField = this.getClass().getDeclaredField("tv"+joiner.getLocation());
-            TextView textView = (TextView)tvField.get(this);
+            Field tvField = this.getClass().getDeclaredField("tv" + joiner.getLocation());
+            TextView textView = (TextView) tvField.get(this);
             textView.setText(joiner.getJoiner().getPlayerMsg().getName());
 
             updateGameMsg("系统消息:", joiner.getJoiner().getPlayerMsg().getName() + "  加入游戏。");
-        }else if(msg.what == PushMsgProto.PushType.PUSH_QUIT_GAME_VALUE){//离开游戏
+        } else if (msg.what == PushMsgProto.PushType.PUSH_QUIT_GAME_VALUE) {//离开游戏
             RoomMsgProto.JoinerInfoMsg joiner = RoomMsgProto.JoinerInfoMsg.parseFrom(msg.getData().getByteArray("data"));
 
             //清空位置
-            Field imField = this.getClass().getDeclaredField("p"+joiner.getLocation());
-            ImageView imageView = (ImageView)imField.get(this);
+            Field imField = this.getClass().getDeclaredField("p" + joiner.getLocation());
+            ImageView imageView = (ImageView) imField.get(this);
             imageView.setImageResource(R.drawable.plder);
-            Field tvField = this.getClass().getDeclaredField("tv"+joiner.getLocation());
-            TextView textView = (TextView)tvField.get(this);
+            Field tvField = this.getClass().getDeclaredField("tv" + joiner.getLocation());
+            TextView textView = (TextView) tvField.get(this);
             textView.setText("");
 
             updateGameMsg("系统消息:", joiner.getJoiner().getPlayerMsg().getName() + "  离开游戏。");
-        }else if(msg.what == PushMsgProto.PushType.PUSH_SEND_TXT_MSG_VALUE){//文本信息推送
+        } else if (msg.what == PushMsgProto.PushType.PUSH_SEND_TXT_MSG_VALUE) {//文本信息推送
             RoomMsgProto.GameMsgPro gameMsgPro = RoomMsgProto.GameMsgPro.parseFrom(msg.getData().getByteArray("data"));
 
-            if(gameMsgPro.getType() == RoomMsgProto.GameMsgType.SYSTEM_VALUE){
+            if (gameMsgPro.getType() == RoomMsgProto.GameMsgType.SYSTEM_VALUE) {
 
                 updateGameMsg("系统消息", "");
-            }else if(gameMsgPro.getType() == RoomMsgProto.GameMsgType.PLAYER_VALUE){
-                updateGameMsg(Integer.toString(gameMsgPro.getSenderId())+"号玩家", gameMsgPro.getPMsg());
+            } else if (gameMsgPro.getType() == RoomMsgProto.GameMsgType.PLAYER_VALUE) {
+                updateGameMsg(Integer.toString(gameMsgPro.getSenderId()) + "号玩家", gameMsgPro.getPMsg());
             }
 
-        }else if(msg.what == PushMsgProto.PushType.PUSH_SEND_VOICE_MSG_VALUE){//语音信息推送
+        } else if (msg.what == PushMsgProto.PushType.PUSH_SEND_VOICE_MSG_VALUE) {//语音信息推送
 
-        }else if(msg.what == PushMsgProto.PushType.PUSH_ROOM_MSG_VALUE){//房间信息推送
+        } else if (msg.what == PushMsgProto.PushType.PUSH_ROOM_MSG_VALUE) {//房间信息推送
             RoomMsgProto.RoomMsg roomMsg = RoomMsgProto.RoomMsg.parseFrom(msg.getData().getByteArray("data"));
             DataManager.getInstance().setRoom(roomMsg);
         }

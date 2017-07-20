@@ -3,6 +3,7 @@ package com.werwolfkill.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -32,6 +33,14 @@ public class GameHallActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         NetManager.getInstance().setmHandler(mHandler);
+        try {
+            Toolbar toolbar = (Toolbar) findViewById(R.id.gh_tb);
+            setSupportActionBar(toolbar);
+            toolbar.setLogo(DataManager.getInstance().getRimgId(DataManager.getInstance().getPlayer().getImgId()));
+            setTitle(DataManager.getInstance().getPlayer().getName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -73,20 +82,20 @@ public class GameHallActivity extends BaseActivity {
             DataManager.getInstance().setRoom(rsp.getRoom());
             bundle.putInt("code", ClientActionProto.ClientAction.ACTION_CREAT_ROOM_VALUE);
             Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra("data",bundle);
+            intent.putExtra("data", bundle);
             startActivity(intent);
         } else if (msg.what == ClientActionProto.ClientAction.ACTION_JOIN_ROOM_VALUE) {//加入房间
             RoomMsgProto.JoinRoomRsp rsp = RoomMsgProto.JoinRoomRsp.parseFrom(msg.getData().getByteArray("data"));
-            if(rsp.getSuccess()){
+            if (rsp.getSuccess()) {
                 DataManager.getInstance().setRoom(rsp.getRoom());
                 bundle.putInt("code", ClientActionProto.ClientAction.ACTION_JOIN_ROOM_VALUE);
                 Intent intent = new Intent(this, MainActivity.class);
-                intent.putExtra("data",bundle);
+                intent.putExtra("data", bundle);
                 startActivity(intent);
-            }else{
+            } else {
                 Toast.makeText(this, "没有可加入房间", Toast.LENGTH_LONG).show();
             }
-        }else{
+        } else {
             return;
         }
     }

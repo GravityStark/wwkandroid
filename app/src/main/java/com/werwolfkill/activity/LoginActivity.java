@@ -49,7 +49,6 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        getSupportActionBar().hide();
         //绑定启动net服务
         Intent intent = new Intent(this, NetService.class);
         bindService(intent, netServiceConnection, BIND_AUTO_CREATE);
